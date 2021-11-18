@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\Espacio Nube Web\\EspacioNube.web\\EspacioNube.web.csproj": {}
+    "C:\\Users\\mathi\\Desktop\\ComIT\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\Espacio Nube Web\\EspacioNube.web\\EspacioNube.web.csproj": {
+    "C:\\Users\\mathi\\Desktop\\ComIT\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\Espacio Nube Web\\EspacioNube.web\\EspacioNube.web.csproj",
+        "projectUniqueName": "C:\\Users\\mathi\\Desktop\\ComIT\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
         "projectName": "EspacioNube.web",
-        "projectPath": "C:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\Espacio Nube Web\\EspacioNube.web\\EspacioNube.web.csproj",
-        "packagesPath": "C:\\Users\\Matias\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\Espacio Nube Web\\EspacioNube.web\\obj\\",
+        "projectPath": "C:\\Users\\mathi\\Desktop\\ComIT\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
+        "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mathi\\Desktop\\ComIT\\HiredIn\\EspacioNube.web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Matias\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -63,6 +63,10 @@
             "Microsoft.Extensions.Logging.Debug": {
               "target": "Package",
               "version": "[6.0.0, )"
+            },
+            "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [
