@@ -3,11 +3,9 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EspacioNube.web.Models{
-public class Empresa
+public class Empresa : EntityBase
 {   
-    [Key]
-    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public long ID { get; set; }
+    
     [Required]
     public string NombreEmpresa { get; set; }
     [Required]
