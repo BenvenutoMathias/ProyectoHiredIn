@@ -13,7 +13,7 @@ namespace EspacioNube.web.Data
             : base(options)
         {
         }
-        public DbSet<Postulante> Postulantes { get; set;}
+        public DbSet<Usuario> Usuarios { get; set;}
         public DbSet<Empresa> Empresas { get; set; }
         
     }

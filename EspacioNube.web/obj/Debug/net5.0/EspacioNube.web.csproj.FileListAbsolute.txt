@@ -590,7 +590,6 @@ C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Ra
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Form\Formulario.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Home\Privacy.cshtml.g.cs
-C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Postulantes\PostulanteRegistrado.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Shared\_LoginPartial.cshtml.g.cs
@@ -603,5 +602,7 @@ C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Es
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\EspacioNube.web.csproj.CopyComplete
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\EspacioNube.web.genruntimeconfig.cache
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Empresas\ConsultarEmpresas.cshtml.g.cs
-C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Postulantes\CrearPostulante.cshtml.g.cs
-C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Postulantes\ConsultarPostulantes.cshtml.g.cs
+C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Usuarios\ConsultarUsuarios.cshtml.g.cs
+C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Usuarios\CrearUsuario.cshtml.g.cs
+C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Usuarios\PostulacionExitosa.cshtml.g.cs
+C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Usuarios\UsuarioRegistrado.cshtml.g.cs

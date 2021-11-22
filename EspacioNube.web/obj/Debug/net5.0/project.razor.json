@@ -15654,11 +15654,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Views\\Postulantes\\ConsultarPostulantes.cshtml",
-      "TargetPath": "Views\\Postulantes\\ConsultarPostulantes.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Disable2fa.cshtml",
       "FileKind": "mvc"
@@ -15691,11 +15686,6 @@
     {
       "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Views\\Shared\\_Layout.cshtml",
       "TargetPath": "Views\\Shared\\_Layout.cshtml",
-      "FileKind": "mvc"
-    },
-    {
-      "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Views\\Postulantes\\PostulanteRegistrado.cshtml",
-      "TargetPath": "Views\\Postulantes\\PostulanteRegistrado.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15739,6 +15729,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Views\\Usuarios\\UsuarioRegistrado.cshtml",
+      "TargetPath": "Views\\Usuarios\\UsuarioRegistrado.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\Index.cshtml",
       "FileKind": "mvc"
@@ -15774,11 +15769,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Views\\Postulantes\\CrearPostulante.cshtml",
-      "TargetPath": "Views\\Postulantes\\CrearPostulante.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Areas\\Identity\\Pages\\Error.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Error.cshtml",
       "FileKind": "mvc"
@@ -15786,6 +15776,11 @@
     {
       "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Views\\Usuarios\\ConsultarUsuarios.cshtml",
+      "TargetPath": "Views\\Usuarios\\ConsultarUsuarios.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15826,6 +15821,11 @@
     {
       "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Views\\Home\\Privacy.cshtml",
       "TargetPath": "Views\\Home\\Privacy.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Views\\Usuarios\\CrearUsuario.cshtml",
+      "TargetPath": "Views\\Usuarios\\CrearUsuario.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15886,6 +15886,11 @@
     {
       "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Views\\Usuarios\\PostulacionExitosa.cshtml",
+      "TargetPath": "Views\\Usuarios\\PostulacionExitosa.cshtml",
       "FileKind": "mvc"
     },
     {

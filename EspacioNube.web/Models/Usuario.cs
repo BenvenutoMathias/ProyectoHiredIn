@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EspacioNube.web.Models{
-public class Postulante : EntityBase
+public class Usuario : EntityBase
 {
     
     [Required]

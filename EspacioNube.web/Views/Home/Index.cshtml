@@ -5,11 +5,11 @@
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
 <a asp-action="ConsultarEmpresas" asp-controller="Empresas">Consultar empresas</a>
-<a asp-action="ConsultarPostulantes" asp-controller="Postulantes">Consultar postulantes</a>
+<a asp-action="ConsultarUsuarios" asp-controller="Usuarios">Consultar usuarios</a>
 
 @* <div class="text-center">
 <select onchange="buscar()">
-    @foreach (var item in ViewBag.PostulantesList)
+    @foreach (var item in ViewBag.UsuariosList)
     {
         <option value="">@item.Nombre</option>
     

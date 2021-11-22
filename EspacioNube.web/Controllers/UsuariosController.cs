@@ -6,18 +6,18 @@ using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 
 namespace EspacioNube.web.Controllers{
-    public class PostulantesController : Controller
+    public class UsuariosController : Controller
     {
         private ApplicationDbContext _context;
 
-        public PostulantesController (ApplicationDbContext context){
+        public UsuariosController (ApplicationDbContext context){
             _context = context;
         }
 
         
 
 
-        public IActionResult CrearPostulante(){
+        public IActionResult CrearUsuario(){
 
           return View();
 
@@ -27,9 +27,9 @@ namespace EspacioNube.web.Controllers{
 
 
 
-        public IActionResult GuardarPostulante (string nombre, string apellido, string dni, string telefono, string email, DateTime fechaNacimiento, string genero){
+        public IActionResult GuardarUsuario (string nombre, string apellido, string dni, string telefono, string email, DateTime fechaNacimiento, string genero){
 
-              Postulante NuevoPostulante = new Postulante(){
+              Usuario NuevoUsuario = new Usuario(){
                 Nombre = nombre,
                 Apellido = apellido,
                 DNI = dni,
@@ -40,34 +40,38 @@ namespace EspacioNube.web.Controllers{
 
             };
 
-            _context.Postulantes.Add(NuevoPostulante);
+            _context.Usuarios.Add(NuevoUsuario);
             _context.SaveChanges();
 
-            return RedirectToAction("PostulanteRegistrado");
+            return RedirectToAction("UsuarioRegistrado");
 
         }
 
 
 
 
-        public IActionResult PostulanteRegistrado(){
+        public IActionResult UsuarioRegistrado(){
             return View();
         }
 
         [Authorize]
-         public IActionResult ConsultarPostulantes(){
-            ViewBag.PostulantesList = _context.Postulantes.ToList();
+         public IActionResult ConsultarUsuarios(){
+            ViewBag.UsuariosList = _context.Usuarios.ToList();
             return View();
         }
-      /*   [Authorize]
-        public IActionResult Postular(string nombre){
+        [Authorize]
+        public IActionResult PostularUsuario(Usuario nombre){
 
             Empresa Postulacion = new Empresa (){
                 Postulacion = nombre,
             };
 
+            return RedirectToAction("PostulacionExitosa");
+        }
+
+        public IActionResult PostulacionExitosa (){
             return View();
-        } */
+        }
 
     }
 }
