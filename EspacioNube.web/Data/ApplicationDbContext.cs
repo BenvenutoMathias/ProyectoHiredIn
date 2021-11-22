@@ -15,5 +15,6 @@ namespace EspacioNube.web.Data
         }
         public DbSet<Postulante> Postulantes { get; set;}
         public DbSet<Empresa> Empresas { get; set; }
+        
     }
 }

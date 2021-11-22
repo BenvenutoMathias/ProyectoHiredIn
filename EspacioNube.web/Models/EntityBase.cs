@@ -1,4 +1,5 @@
-
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EspacioNube.web.Models
 {
@@ -6,7 +7,7 @@ namespace EspacioNube.web.Models
     {
     [Key]
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-    public long ID { get; set; }
+    public int ID { get; set; }
     }
 }
 

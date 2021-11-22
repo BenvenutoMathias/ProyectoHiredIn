@@ -2,21 +2,34 @@ using System;
 using EspacioNube.web.Data;
 using EspacioNube.web.Models;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EspacioNube.web.Controllers{
     public class PostulantesController : Controller
     {
         private ApplicationDbContext _context;
+
         public PostulantesController (ApplicationDbContext context){
             _context = context;
         }
-        public IActionResult Index(){
-            return View();
+
+        
+
+
+        public IActionResult CrearPostulante(){
+
+          return View();
+
+            
         }
 
-        public IActionResult crearPostulante(string nombre, string apellido, string dni, string telefono, string email, DateTime fechaNacimiento, string genero){
 
-            Postulante NuevoPostulante = new Postulante(){
+
+
+        public IActionResult GuardarPostulante (string nombre, string apellido, string dni, string telefono, string email, DateTime fechaNacimiento, string genero){
+
+              Postulante NuevoPostulante = new Postulante(){
                 Nombre = nombre,
                 Apellido = apellido,
                 DNI = dni,
@@ -31,15 +44,30 @@ namespace EspacioNube.web.Controllers{
             _context.SaveChanges();
 
             return RedirectToAction("PostulanteRegistrado");
+
         }
+
+
+
 
         public IActionResult PostulanteRegistrado(){
             return View();
         }
 
-         public JsonResult ConsultarPostulantes(){
-            return Json(_context.Postulantes);
+        [Authorize]
+         public IActionResult ConsultarPostulantes(){
+            ViewBag.PostulantesList = _context.Postulantes.ToList();
+            return View();
         }
+      /*   [Authorize]
+        public IActionResult Postular(string nombre){
+
+            Empresa Postulacion = new Empresa (){
+                Postulacion = nombre,
+            };
+
+            return View();
+        } */
 
     }
 }

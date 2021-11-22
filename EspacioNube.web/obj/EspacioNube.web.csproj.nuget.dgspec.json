@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mathi\\Desktop\\ComIT\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj": {}
+    "C:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mathi\\Desktop\\ComIT\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj": {
+    "C:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mathi\\Desktop\\ComIT\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
+        "projectUniqueName": "C:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
         "projectName": "EspacioNube.web",
-        "projectPath": "C:\\Users\\mathi\\Desktop\\ComIT\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
-        "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mathi\\Desktop\\ComIT\\HiredIn\\EspacioNube.web\\obj\\",
+        "projectPath": "C:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
+        "packagesPath": "C:\\Users\\Matias\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\mathi\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Matias\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

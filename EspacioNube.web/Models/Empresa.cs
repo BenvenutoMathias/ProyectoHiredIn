@@ -14,6 +14,7 @@ public class Empresa : EntityBase
     public string Email { get; set; }
     public string Sucursal { get; set; }
     public string UbicacionSucursal { get; set; }
+   /*  public Postulante Postulacion { get; set; } */
  
 }
 

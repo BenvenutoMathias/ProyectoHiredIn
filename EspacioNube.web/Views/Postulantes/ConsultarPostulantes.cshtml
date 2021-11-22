@@ -1,5 +1,3 @@
-﻿
-
 <div class="text-center">
     <h1 class="display-4">ASP.NET CORE</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
@@ -7,13 +5,13 @@
 <a asp-action="ConsultarEmpresas" asp-controller="Empresas">Consultar empresas</a>
 <a asp-action="ConsultarPostulantes" asp-controller="Postulantes">Consultar postulantes</a>
 
-@* <div class="text-center">
-<select onchange="buscar()">
-    @foreach (var item in ViewBag.PostulantesList)
-    {
-        <option value="">@item.Nombre</option>
-    
-    }
-    
-</select>
-</div> *@
+
+@foreach (var item in ViewBag.PostulantesList)
+{
+    <table>
+        
+        <th>Postulantes</th>
+        <tr><td>@item.Nombre</td></tr>
+        
+    </table>
+}

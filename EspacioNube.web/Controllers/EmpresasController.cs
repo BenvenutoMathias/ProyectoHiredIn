@@ -2,7 +2,8 @@ using System;
 using EspacioNube.web.Data;
 using EspacioNube.web.Models;
 using Microsoft.AspNetCore.Mvc;
-
+using System.Linq;
+using Microsoft.AspNetCore.Authorization;
 
 namespace EspacioNube.web.Controllers{
 
@@ -20,8 +21,13 @@ namespace EspacioNube.web.Controllers{
         }
 
         
-        public IActionResult crearEmpresa(string nombre, string rubro, string telefono, string email, string sucursal, string ubicacion){
+        public IActionResult Crear(){
             
+             return RedirectToAction("Index");
+        }
+
+        public IActionResult Guardar(string nombre, string rubro, string telefono, string email, string sucursal, string ubicacion){
+
             Empresa NuevaEmpresa = new Empresa(){
                 NombreEmpresa = nombre,
                 Rubro = rubro,
@@ -39,9 +45,10 @@ namespace EspacioNube.web.Controllers{
         public IActionResult EmpresaRegistrada(){
             return View();
         }
-        
-        public JsonResult ConsultarEmpresas(){
-            return Json(_context.Empresas);
+        [Authorize]
+        public IActionResult ConsultarEmpresas(){
+            ViewBag.EmpresasList = _context.Empresas.ToList();
+            return View();
         }
 
     }
