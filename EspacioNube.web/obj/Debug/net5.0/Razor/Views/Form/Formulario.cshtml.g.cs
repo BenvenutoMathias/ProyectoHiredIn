@@ -26,8 +26,15 @@ using EspacioNube.web.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\Views\_ViewImports.cshtml"
+using EspacioNube.web.Data;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"590e76683a9c2268dd5b055fd8279fa1097bd0ca", @"/Views/Form/Formulario.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4769e5e174bf13923e6238b438b0549b80f7e1ad", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"aebf15dec159ef010893d2bc3a7c4151922caea3", @"/Views/_ViewImports.cshtml")]
     public class Views_Form_Formulario : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("method", "post", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -57,7 +64,7 @@ using EspacioNube.web.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("<div>\r\n    ");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "590e76683a9c2268dd5b055fd8279fa1097bd0ca3571", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "590e76683a9c2268dd5b055fd8279fa1097bd0ca3767", async() => {
                 WriteLiteral(@"
         <label for=""formControlInput"" class=""form-label"">Nombre</label>
 <input type=""text"" class=""form-control"" id=""formControlInput"" name=""nombre"" value=""Mathias"" placeholder=""Nombre"">

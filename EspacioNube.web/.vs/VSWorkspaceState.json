@@ -6,6 +6,6 @@
     "\\wwwroot\\css",
     "\\wwwroot\\js"
   ],
-  "SelectedNode": "\\wwwroot\\js\\site.js",
+  "SelectedNode": "\\Controllers\\PostulantesController.cs",
   "PreviewInSolutionExplorer": false
 }

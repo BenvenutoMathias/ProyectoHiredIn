@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EspacioNube.web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211122054042_cambiosModelos")]
-    partial class cambiosModelos
+    [Migration("20211125192906_testeando")]
+    partial class testeando
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,83 @@ namespace EspacioNube.web.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("ProductVersion", "5.0.11")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+            modelBuilder.Entity("EspacioNube.web.Data.User", b =>
+                {
+                    b.Property<string>("Id")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .IsConcurrencyToken()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Gender")
+                        .HasMaxLength(1)
+                        .HasColumnType("nvarchar(1)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NormalizedEmail")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("NormalizedUserName")
+                        .HasMaxLength(256)
+                        .HasColumnType("nvarchar(256)");
+
+                    b.Property<string>("PasswordHash")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("UserName")
+                        .ValueGeneratedOnAdd()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)")
+                        .HasDefaultValue("0");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("NormalizedEmail")
+                        .HasDatabaseName("EmailIndex");
+
+                    b.HasIndex("NormalizedUserName")
+                        .IsUnique()
+                        .HasDatabaseName("UserNameIndex")
+                        .HasFilter("[NormalizedUserName] IS NOT NULL");
+
+                    b.ToTable("User");
+                });
 
             modelBuilder.Entity("EspacioNube.web.Models.Empresa", b =>
                 {
@@ -34,9 +111,6 @@ namespace EspacioNube.web.Migrations
                     b.Property<string>("NombreEmpresa")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int?>("PostulacionID")
-                        .HasColumnType("int");
 
                     b.Property<string>("Rubro")
                         .IsRequired()
@@ -53,21 +127,15 @@ namespace EspacioNube.web.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("PostulacionID");
-
                     b.ToTable("Empresas");
                 });
 
-            modelBuilder.Entity("EspacioNube.web.Models.Usuario", b =>
+            modelBuilder.Entity("EspacioNube.web.Models.Postulante", b =>
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Apellido")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("DNI")
                         .IsRequired()
@@ -76,22 +144,36 @@ namespace EspacioNube.web.Migrations
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("EmpresaID")
+                        .HasColumnType("int");
+
                     b.Property<DateTime>("FechaNacimiento")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Genero")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("FirstNameId")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<string>("GeneroId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("LastNameId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("Telefono")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("ID");
 
-                    b.ToTable("Usuarios");
+                    b.HasIndex("EmpresaID")
+                        .IsUnique();
+
+                    b.HasIndex("FirstNameId");
+
+                    b.HasIndex("GeneroId");
+
+                    b.HasIndex("LastNameId");
+
+                    b.ToTable("Postulantes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -143,71 +225,6 @@ namespace EspacioNube.web.Migrations
                     b.HasIndex("RoleId");
 
                     b.ToTable("AspNetRoleClaims");
-                });
-
-            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUser", b =>
-                {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<int>("AccessFailedCount")
-                        .HasColumnType("int");
-
-                    b.Property<string>("ConcurrencyStamp")
-                        .IsConcurrencyToken()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Email")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<bool>("EmailConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("LockoutEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<DateTimeOffset?>("LockoutEnd")
-                        .HasColumnType("datetimeoffset");
-
-                    b.Property<string>("NormalizedEmail")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("NormalizedUserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.Property<string>("PasswordHash")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("PhoneNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("PhoneNumberConfirmed")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("SecurityStamp")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("TwoFactorEnabled")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("UserName")
-                        .HasMaxLength(256)
-                        .HasColumnType("nvarchar(256)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("NormalizedEmail")
-                        .HasDatabaseName("EmailIndex");
-
-                    b.HasIndex("NormalizedUserName")
-                        .IsUnique()
-                        .HasDatabaseName("UserNameIndex")
-                        .HasFilter("[NormalizedUserName] IS NOT NULL");
-
-                    b.ToTable("AspNetUsers");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -294,11 +311,31 @@ namespace EspacioNube.web.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
-            modelBuilder.Entity("EspacioNube.web.Models.Empresa", b =>
+            modelBuilder.Entity("EspacioNube.web.Models.Postulante", b =>
                 {
-                    b.HasOne("EspacioNube.web.Models.Usuario", "Postulacion")
+                    b.HasOne("EspacioNube.web.Models.Empresa", "Postulacion")
+                        .WithOne("Postulantes")
+                        .HasForeignKey("EspacioNube.web.Models.Postulante", "EmpresaID")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("EspacioNube.web.Data.User", "FirstName")
                         .WithMany()
-                        .HasForeignKey("PostulacionID");
+                        .HasForeignKey("FirstNameId");
+
+                    b.HasOne("EspacioNube.web.Data.User", "Genero")
+                        .WithMany()
+                        .HasForeignKey("GeneroId");
+
+                    b.HasOne("EspacioNube.web.Data.User", "LastName")
+                        .WithMany()
+                        .HasForeignKey("LastNameId");
+
+                    b.Navigation("FirstName");
+
+                    b.Navigation("Genero");
+
+                    b.Navigation("LastName");
 
                     b.Navigation("Postulacion");
                 });
@@ -314,7 +351,7 @@ namespace EspacioNube.web.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("EspacioNube.web.Data.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -323,7 +360,7 @@ namespace EspacioNube.web.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("EspacioNube.web.Data.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -338,7 +375,7 @@ namespace EspacioNube.web.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("EspacioNube.web.Data.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -347,11 +384,16 @@ namespace EspacioNube.web.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", null)
+                    b.HasOne("EspacioNube.web.Data.User", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("EspacioNube.web.Models.Empresa", b =>
+                {
+                    b.Navigation("Postulantes");
                 });
 #pragma warning restore 612, 618
         }

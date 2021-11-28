@@ -13,20 +13,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
+using EspacioNube.web.Data;
+
 
 namespace EspacioNube.web.Areas.Identity.Pages.Account
 {
     [AllowAnonymous]
     public class RegisterModel : PageModel
     {
-        private readonly SignInManager<IdentityUser> _signInManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<User> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
 
         public RegisterModel(
-            UserManager<IdentityUser> userManager,
-            SignInManager<IdentityUser> signInManager,
+            UserManager<User> userManager,
+            SignInManager<User> signInManager,
             ILogger<RegisterModel> logger,
             IEmailSender emailSender)
         {
@@ -60,6 +62,18 @@ namespace EspacioNube.web.Areas.Identity.Pages.Account
             [Display(Name = "Confirm password")]
             [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
             public string ConfirmPassword { get; set; }
+
+           /*  AGREGADO */
+
+            [Required]
+            [Display(Name = "Nombre")]
+            public string FirstName { get; set; }
+            [Required]
+            [Display(Name = "Apellido")]
+            public string LastName { get; set; }
+
+            /* FINALIZA AGREGADO */
+
         }
 
         public async Task OnGetAsync(string returnUrl = null)
@@ -72,9 +86,12 @@ namespace EspacioNube.web.Areas.Identity.Pages.Account
         {
             returnUrl ??= Url.Content("~/");
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
+
+
             if (ModelState.IsValid)
             {
-                var user = new IdentityUser { UserName = Input.Email, Email = Input.Email };
+                 
+                var user = new User { UserName = Input.Email, Email = Input.Email, FirstName = Input.FirstName, LastName = Input.LastName};
                 var result = await _userManager.CreateAsync(user, Input.Password);
                 if (result.Succeeded)
                 {

@@ -26,8 +26,15 @@ using EspacioNube.web.Models;
 #line default
 #line hidden
 #nullable disable
+#nullable restore
+#line 4 "C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\Views\_ViewImports.cshtml"
+using EspacioNube.web.Data;
+
+#line default
+#line hidden
+#nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"b305a3957c9c6adfb5c2676f2ceef95f8648277d", @"/Views/Empresas/EmpresaRegistrada.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"4769e5e174bf13923e6238b438b0549b80f7e1ad", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"aebf15dec159ef010893d2bc3a7c4151922caea3", @"/Views/_ViewImports.cshtml")]
     public class Views_Empresas_EmpresaRegistrada : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<dynamic>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("asp-action", "ConsultarEmpresas", global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -56,7 +63,7 @@ using EspacioNube.web.Models;
         public async override global::System.Threading.Tasks.Task ExecuteAsync()
         {
             WriteLiteral("\r\n\r\n<h1>Empresa registrada </h1>\r\n\r\n");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b305a3957c9c6adfb5c2676f2ceef95f8648277d3524", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b305a3957c9c6adfb5c2676f2ceef95f8648277d3720", async() => {
                 WriteLiteral("Consultar Empresas");
             }
             );

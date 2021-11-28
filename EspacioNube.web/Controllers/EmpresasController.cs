@@ -4,8 +4,10 @@ using EspacioNube.web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
 
-namespace EspacioNube.web.Controllers{
+namespace EspacioNube.web.Controllers
+{
 
     public class EmpresasController : Controller
     {
@@ -16,19 +18,23 @@ namespace EspacioNube.web.Controllers{
             _context = context;
         }
 
-        public IActionResult Index(){
+        public IActionResult Index()
+        {
             return View();
         }
 
-        
-        public IActionResult Crear(){
-            
-             return RedirectToAction("Index");
+        [Authorize]
+        public IActionResult Crear()
+        {
+
+            return RedirectToAction("Index");
         }
 
-        public IActionResult Guardar(string nombre, string rubro, string telefono, string email, string sucursal, string ubicacion){
+        public IActionResult Guardar(string nombre, string rubro, string telefono, string email, string sucursal, string ubicacion)
+        {
 
-            Empresa NuevaEmpresa = new Empresa(){
+            Empresa NuevaEmpresa = new Empresa()
+            {
                 NombreEmpresa = nombre,
                 Rubro = rubro,
                 Telefono = telefono,
@@ -42,14 +48,36 @@ namespace EspacioNube.web.Controllers{
             return RedirectToAction("EmpresaRegistrada");
         }
 
-        public IActionResult EmpresaRegistrada(){
+
+
+        public IActionResult EmpresaRegistrada()
+        {
             return View();
         }
         [Authorize]
-        public IActionResult ConsultarEmpresas(){
+        public IActionResult ConsultarEmpresas()
+        {
             ViewBag.EmpresasList = _context.Empresas.ToList();
             return View();
         }
+
+        /*  public IActionResult AlmacenarPostulantes(){
+
+
+             List<Postulante> Postulantes = new List<Postulante>(){
+
+
+             };
+
+
+
+
+
+             return ;
+
+
+
+         } */
 
     }
 

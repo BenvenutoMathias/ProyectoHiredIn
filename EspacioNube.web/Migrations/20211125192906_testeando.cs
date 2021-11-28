@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EspacioNube.web.Migrations
 {
-    public partial class creacionInicial : Migration
+    public partial class testeando : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -19,31 +19,6 @@ namespace EspacioNube.web.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
-                name: "AspNetUsers",
-                columns: table => new
-                {
-                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
-                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
-                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
-                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
-                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_AspNetUsers", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -65,22 +40,31 @@ namespace EspacioNube.web.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Postulantes",
+                name: "User",
                 columns: table => new
                 {
-                    ID = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Nombre = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Apellido = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    DNI = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FechaNacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
-                    Genero = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    LastName = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Gender = table.Column<string>(type: "nvarchar(1)", maxLength: 1, nullable: true),
+                    UserName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: true, defaultValue: "0"),
+                    NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    NormalizedEmail = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
+                    EmailConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    PasswordHash = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    SecurityStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    ConcurrencyStamp = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    PhoneNumberConfirmed = table.Column<bool>(type: "bit", nullable: false),
+                    TwoFactorEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    LockoutEnd = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
+                    LockoutEnabled = table.Column<bool>(type: "bit", nullable: false),
+                    AccessFailedCount = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Postulantes", x => x.ID);
+                    table.PrimaryKey("PK_User", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -118,9 +102,9 @@ namespace EspacioNube.web.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUserClaims", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_AspNetUserClaims_AspNetUsers_UserId",
+                        name: "FK_AspNetUserClaims_User_UserId",
                         column: x => x.UserId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -138,9 +122,9 @@ namespace EspacioNube.web.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUserLogins", x => new { x.LoginProvider, x.ProviderKey });
                     table.ForeignKey(
-                        name: "FK_AspNetUserLogins_AspNetUsers_UserId",
+                        name: "FK_AspNetUserLogins_User_UserId",
                         column: x => x.UserId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -162,9 +146,9 @@ namespace EspacioNube.web.Migrations
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_AspNetUserRoles_AspNetUsers_UserId",
+                        name: "FK_AspNetUserRoles_User_UserId",
                         column: x => x.UserId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
@@ -182,11 +166,55 @@ namespace EspacioNube.web.Migrations
                 {
                     table.PrimaryKey("PK_AspNetUserTokens", x => new { x.UserId, x.LoginProvider, x.Name });
                     table.ForeignKey(
-                        name: "FK_AspNetUserTokens_AspNetUsers_UserId",
+                        name: "FK_AspNetUserTokens_User_UserId",
                         column: x => x.UserId,
-                        principalTable: "AspNetUsers",
+                        principalTable: "User",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Postulantes",
+                columns: table => new
+                {
+                    ID = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    FirstNameId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    LastNameId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    DNI = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Telefono = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    FechaNacimiento = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    GeneroId = table.Column<string>(type: "nvarchar(450)", nullable: true),
+                    EmpresaID = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Postulantes", x => x.ID);
+                    table.ForeignKey(
+                        name: "FK_Postulantes_Empresas_EmpresaID",
+                        column: x => x.EmpresaID,
+                        principalTable: "Empresas",
+                        principalColumn: "ID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Postulantes_User_FirstNameId",
+                        column: x => x.FirstNameId,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Postulantes_User_GeneroId",
+                        column: x => x.GeneroId,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
+                    table.ForeignKey(
+                        name: "FK_Postulantes_User_LastNameId",
+                        column: x => x.LastNameId,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateIndex(
@@ -217,13 +245,34 @@ namespace EspacioNube.web.Migrations
                 column: "RoleId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Postulantes_EmpresaID",
+                table: "Postulantes",
+                column: "EmpresaID",
+                unique: true);
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Postulantes_FirstNameId",
+                table: "Postulantes",
+                column: "FirstNameId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Postulantes_GeneroId",
+                table: "Postulantes",
+                column: "GeneroId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Postulantes_LastNameId",
+                table: "Postulantes",
+                column: "LastNameId");
+
+            migrationBuilder.CreateIndex(
                 name: "EmailIndex",
-                table: "AspNetUsers",
+                table: "User",
                 column: "NormalizedEmail");
 
             migrationBuilder.CreateIndex(
                 name: "UserNameIndex",
-                table: "AspNetUsers",
+                table: "User",
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
@@ -247,16 +296,16 @@ namespace EspacioNube.web.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
-                name: "Empresas");
-
-            migrationBuilder.DropTable(
                 name: "Postulantes");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
-                name: "AspNetUsers");
+                name: "Empresas");
+
+            migrationBuilder.DropTable(
+                name: "User");
         }
     }
 }
