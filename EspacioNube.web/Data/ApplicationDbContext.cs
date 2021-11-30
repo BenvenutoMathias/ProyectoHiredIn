@@ -18,10 +18,28 @@ namespace EspacioNube.web.Data
         public DbSet<Empresa> Empresas { get; set; }
 
         /* PARA AGREGAR PROPIEDADES A ENTITY */
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(builder);
+            /* Agregado */
 
+            {
+
+                modelBuilder.Entity<Postulante>()
+                            .HasMany<Empresa>(p => p.Empresas)
+                            .WithMany(e => e.Postulantes)
+                            .Map(cs =>
+                                    {
+                                        cs.MapLeftKey("PostulanteRefId");
+                                        cs.MapRightKey("EmpresaRefId");
+                                        cs.ToTable("PostulanteEmpresa");
+                                    });
+
+            }
+
+            /* Agregado */
+
+            /*  User */
             builder.Entity<User>(entityTypeBuilder =>
             {
                 entityTypeBuilder.ToTable("User");
@@ -32,6 +50,7 @@ namespace EspacioNube.web.Data
                 entityTypeBuilder.Property(u => u.Gender)
             .HasMaxLength(1);
             });
+            /*  User */
 
         }
         /* PARA AGREGAR PROPIEDADES A ENTITY */
@@ -39,11 +58,11 @@ namespace EspacioNube.web.Data
     }
 
 
-  /*   public class User : IdentityUser
+    public class User : IdentityUser
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Gender { get; set; }
 
-    } */
+    }
 }
