@@ -15704,11 +15704,6 @@
       "FileKind": "mvc"
     },
     {
-      "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Views\\Postulantes\\PostulacionExitosa.cshtml",
-      "TargetPath": "Views\\Postulantes\\PostulacionExitosa.cshtml",
-      "FileKind": "mvc"
-    },
-    {
       "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\ForgotPassword.cshtml",
       "FileKind": "mvc"
@@ -15876,6 +15871,11 @@
     {
       "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Areas\\Identity\\Pages\\Account\\Login.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Login.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Views\\Empresas\\Editar.cshtml",
+      "TargetPath": "Views\\Empresas\\Editar.cshtml",
       "FileKind": "mvc"
     },
     {

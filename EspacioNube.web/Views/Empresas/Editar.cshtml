@@ -1,0 +1,16 @@
+@model Empresa
+
+<h1>Editar Empresa</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <form action="@Url.Action("Actualizar", "Empresas")" method="get">
+            <input type="text" name="id" asp-for="ID" hidden>
+            <div class="form-group">
+                <label for="nombre">Nombre</label>
+                <input type="text" class="form-control" name="nombre" asp-for="NombreEmpresa">
+            </div>
+            <input type="submit" value="Edit">
+        </form>
+    </div>
+</div>

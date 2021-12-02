@@ -4,6 +4,7 @@ using EspacioNube.web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
 
 namespace EspacioNube.web.Controllers
 {
@@ -18,7 +19,7 @@ namespace EspacioNube.web.Controllers
 
 
 
-        [Authorize]
+        /* [Authorize] */
         public IActionResult CrearPostulante()
         {
             ViewBag.EmpresasList = _context.Empresas.ToList();
@@ -29,19 +30,21 @@ namespace EspacioNube.web.Controllers
         }
 
 
-
-
-        public IActionResult GuardarPostulante(string dni, string telefono, string email, DateTime fechaNacimiento, string empresaID)
+        public IActionResult GuardarPostulante(string nombre, string dni, string telefono, string email, DateTime fechaNacimiento, int empresaID)
         {
-
+            Empresa empSel = _context.Empresas.Find(empresaID);
+            List<Empresa> newList = new List<Empresa>();
+            newList.Add(empSel);
+            
             Postulante NuevoPostulante = new Postulante()
             {
-                /*  Nombre = nombre,
-                 Apellido = apellido, */
+                Nombre = nombre,
+                /*  Apellido = apellido, */ 
                 DNI = dni,
                 Telefono = telefono,
                 Email = email,
                 FechaNacimiento = fechaNacimiento,
+                Empresas = newList,
                /*  Genero = genero, */
 
             };
@@ -53,19 +56,7 @@ namespace EspacioNube.web.Controllers
 
         }
 
-        /* public IActionResult PostularPostulante(Empresa nombre)
-        {
-            
-            
         
-            Empresa Postulacion = new Empresa()
-            {
-                Postulacion = nombre,
-            };
-
-            return RedirectToAction("PostulacionExitosa");
-        } */
-
 
 
         public IActionResult PostulanteRegistrado()
@@ -73,18 +64,17 @@ namespace EspacioNube.web.Controllers
             return View();
         }
 
-        [Authorize]
+        
         public IActionResult ConsultarPostulantes()
         {
             ViewBag.PostulantesList = _context.Postulantes.ToList();
+            
+            
             return View();
         }
-        [Authorize]
+      
 
-        public IActionResult PostulacionExitosa()
-        {
-            return View();
-        }
+        
 
     }
 }

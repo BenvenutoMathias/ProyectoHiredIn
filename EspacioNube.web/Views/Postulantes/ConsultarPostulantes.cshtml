@@ -1,17 +1,36 @@
-<div class="text-center">
-    <h1 class="display-4">ASP.NET CORE</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-<a asp-action="ConsultarEmpresas" asp-controller="Empresas">Consultar empresas</a>
-<a asp-action="ConsultarPostulantes" asp-controller="Postulantes">Consultar postulantes</a>
 
+
+
+<table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      
+      <th scope="col">Postulantes</th>
+      <th scope="col">Dni</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+      @* <th scope="col">Empresa</th> *@
+    </tr>
+  </thead>
 
 @foreach (var item in ViewBag.PostulantesList)
 {
-    <table>
-        
-        <th>Usuarios</th>
-        <tr><td>@item.Nombre</td></tr>
-        
-    </table>
+  <tbody>
+    <tr>
+      <th scope="row">@item.ID</th>
+      
+      <td>@item.Nombre</td>
+      <td>@item.DNI</td>
+      <td>@item.Telefono</td>
+      <td>@item.Email</td>
+      <td><button type="button" class="btn btn-warning">Edit</button>
+            <button type="button" class="btn btn-danger">Delete</button></td>
+    </tr>
+  </tbody>
 }
+
+</table>
+<button type="button" class="btn btn-primary"><a class="nav-link text-light" asp-action="ConsultarEmpresas" asp-controller="Empresas">Consultar empresas</a></button>

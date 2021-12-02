@@ -603,5 +603,5 @@ C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Es
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Empresas\ConsultarEmpresas.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Postulantes\ConsultarPostulantes.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Postulantes\CrearPostulante.cshtml.g.cs
-C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Postulantes\PostulacionExitosa.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Postulantes\PostulanteRegistrado.cshtml.g.cs
+C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Empresas\Editar.cshtml.g.cs

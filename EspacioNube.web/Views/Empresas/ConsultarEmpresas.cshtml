@@ -1,21 +1,39 @@
-<div class="text-center">
-    <h1 class="display-4">ASP.NET CORE</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
-<a asp-action="ConsultarEmpresas" asp-controller="Empresas">Consultar empresas</a>
-<a asp-action="ConsultarPostulantes" asp-controller="Postulantes">Consultar Postulantes</a>
+@* @model List<Empresa> *@
 
 
-@foreach (var item in ViewBag.EmpresasList)
+<table class="table">
+
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Empresas</th>
+      <th scope="col">Rubro</th>
+      <th scope="col">Telefono</th>
+      <th scope="col">Email</th>
+      <th scope="col"></th>
+      @* <th scope="col">Postulantes</th> *@
+    </tr>
+  </thead>
+
+@foreach (var item in ViewBag.EmpresasList  @* @Model *@)
 {
-    <table>
-        
-        <th>Postulantes</th>
-        <tr><td>@item.NombreEmpresa</td></tr>
-        
-    </table>
+  <tbody>
+    <tr>
+      <th scope="row">@item.ID</th>
+      <td>@item.NombreEmpresa</td>
+      <td>@item.Rubro</td>
+      <td>@item.Telefono</td>
+      <td>@item.Email</td>
+      <td><button type="button" class="btn btn-warning">@* <a asp-action="Editar" asp-controller="Empresas" asp-route-id="@item.ID">Editar</a> *@Edit</button>
+      <button type="button" class="btn btn-danger">@* <a asp-action="Eliminar" asp-controller="Empresas" asp-route-id="@item.ID">Delete</a> *@Delete</button></td>
+      @* <td>Juan Carlos</td> *@
+    </tr>
+  </tbody>
 }
 
+</table>
+
+<button type="button" class="btn btn-primary"><a class="nav-link text-light" asp-action="ConsultarPostulantes" asp-controller="Postulantes">Consultar Postulantes</a></button>
 
 
 

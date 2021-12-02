@@ -23,7 +23,7 @@ namespace EspacioNube.web.Controllers
             return View();
         }
 
-        [Authorize]
+        
         public IActionResult Crear()
         {
 
@@ -54,31 +54,35 @@ namespace EspacioNube.web.Controllers
         {
             return View();
         }
-        [Authorize]
+        
         public IActionResult ConsultarEmpresas()
         {
             ViewBag.EmpresasList = _context.Empresas.ToList();
-            return View();
+            return View(/* _context.Empresas.ToList() */);
         }
 
-        /*  public IActionResult AlmacenarPostulantes(){
-
-
-             List<Postulante> Postulantes = new List<Postulante>(){
-
-
-             };
-
-
-
-
-
-             return ;
-
-
-
-         } */
-
+      /*   public IActionResult Editar(int id)
+        {
+            Empresa editar = _context.Empresas.Find(id);
+            if (editar == null)
+            {
+                return RedirectToAction("ConsultarEmpresas");
+            }
+            return View(editar);
+        }
+        public IActionResult Actualizar(int id, string nombre)
+        {   
+            Empresa editar = _context.Empresas.Find(id);
+            return View(editar);
+            if (editar != null)
+            {
+                editar.NombreEmpresa = nombre;
+                _context.Empresas.Update(editar);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("ConsultarEmpresas");
+        } */
+    
     }
 
 }
