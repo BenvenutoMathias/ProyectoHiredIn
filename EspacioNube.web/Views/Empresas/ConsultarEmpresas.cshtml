@@ -1,7 +1,7 @@
-@* @model List<Empresa> *@
+@model List<Empresa>
 
 
-<table class="table">
+<table class="table tableborder">
 
   <thead>
     <tr>
@@ -10,12 +10,13 @@
       <th scope="col">Rubro</th>
       <th scope="col">Telefono</th>
       <th scope="col">Email</th>
+      <th scope="col">Postulantes</th>
       <th scope="col"></th>
-      @* <th scope="col">Postulantes</th> *@
+      
     </tr>
   </thead>
 
-@foreach (var item in ViewBag.EmpresasList  @* @Model *@)
+@foreach (var item in ViewBag.EmpresasList)
 {
   <tbody>
     <tr>
@@ -24,14 +25,22 @@
       <td>@item.Rubro</td>
       <td>@item.Telefono</td>
       <td>@item.Email</td>
+      <td>@item.Postulantes.Count</td>
+
       <td><button type="button" class="btn btn-warning">@* <a asp-action="Editar" asp-controller="Empresas" asp-route-id="@item.ID">Editar</a> *@Edit</button>
-      <button type="button" class="btn btn-danger">@* <a asp-action="Eliminar" asp-controller="Empresas" asp-route-id="@item.ID">Delete</a> *@Delete</button></td>
-      @* <td>Juan Carlos</td> *@
+      <button type="button" class="btn btn-danger">@* <a asp-action="Eliminar" asp-controller="Empresas" asp-route-id="@item.ID">Delete</a> *@Delete</button>
+      <button type="button" class="btn btn-success">@* <a asp-action="Eliminar" asp-controller="Empresas" asp-route-id="@item.ID">Delete</a> *@Details</button></td>
+      
+     @*  @foreach (var p in item.Postulantes)
+      {
+            <td>@p.Nombre</td>
+      } *@
     </tr>
-  </tbody>
+    </tbody>
 }
 
 </table>
+          
 
 <button type="button" class="btn btn-primary"><a class="nav-link text-light" asp-action="ConsultarPostulantes" asp-controller="Postulantes">Consultar Postulantes</a></button>
 

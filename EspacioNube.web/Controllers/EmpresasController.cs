@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
 
 namespace EspacioNube.web.Controllers
 {
@@ -57,7 +58,7 @@ namespace EspacioNube.web.Controllers
         
         public IActionResult ConsultarEmpresas()
         {
-            ViewBag.EmpresasList = _context.Empresas.ToList();
+            ViewBag.EmpresasList = _context.Empresas.Include("Postulantes").ToList();
             return View(/* _context.Empresas.ToList() */);
         }
 
