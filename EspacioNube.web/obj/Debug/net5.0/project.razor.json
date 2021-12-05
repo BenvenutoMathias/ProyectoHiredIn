@@ -15779,6 +15779,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Views\\Empresas\\_showParticalView.cshtml",
+      "TargetPath": "Views\\Empresas\\_showParticalView.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Areas\\Identity\\Pages\\Error.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Error.cshtml",
       "FileKind": "mvc"
@@ -15886,6 +15891,11 @@
     {
       "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\LoginWith2fa.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\Views\\Postulantes\\Editar.cshtml",
+      "TargetPath": "Views\\Postulantes\\Editar.cshtml",
       "FileKind": "mvc"
     },
     {

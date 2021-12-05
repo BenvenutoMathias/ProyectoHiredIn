@@ -1,7 +1,7 @@
 
 
 
-<table class="table">
+<table class="table tableborder">
 
   <thead>
     <tr>
@@ -26,7 +26,7 @@
       <td>@item.DNI</td>
       <td>@item.Telefono</td>
       <td>@item.Email</td>
-      <td><button type="button" class="btn btn-warning">Edit</button>
+      <td><button type="button" class="btn btn-warning"><a asp-action="Editar" asp-controller="Postulantes" asp-route-id="@item.ID">Edit</a></button>
       <button type="button" class="btn btn-danger">Delete</button>
       <button type="button" class="btn btn-success">@* <a asp-action="Eliminar" asp-controller="Empresas" asp-route-id="@item.ID">Delete</a> *@Details</button></td>
     </tr>

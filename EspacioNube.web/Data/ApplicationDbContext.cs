@@ -48,11 +48,7 @@ namespace EspacioNube.web.Data
             {
                 entityTypeBuilder.ToTable("User");
 
-                /* entityTypeBuilder.Property(u => u.UserName)
-                        .HasMaxLength(100)
-                        .HasDefaultValue(0);
-                entityTypeBuilder.Property(u => u.Gender) 
-            .HasMaxLength(1); */
+                
             });
 
             builder.Entity<Postulante>()

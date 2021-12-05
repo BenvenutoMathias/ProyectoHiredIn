@@ -1,24 +1,25 @@
-@model Empresa
+@model Postulante
 
 <h1>Editar Empresa</h1>
 
 <div class="row">
     <div class="col-md-6">
-        <form action="@Url.Action("Actualizar", "Empresas")" method="get">
+        <form action="@Url.Action("Actualizar", "Postulantes")" method="get">
             <input type="text" name="id" asp-for="ID" hidden>
             <div class="form-group">
 
                 <label for="nombre">Nombre</label>
-                <input type="text" class="form-control" name="nombre" asp-for="NombreEmpresa"><br>
+                <input type="text" class="form-control" name="nombre" asp-for="Nombre"><br>
 
-                <label for="rubro">Rubro</label>
-                <input type="text" class="form-control" name="rubro" asp-for="Rubro"><br>
-
-                <label for="telefono">Telefono</label>
-                <input type="text" class="form-control" name="telefono" asp-for="Telefono"><br>
+                <label for="dni">DNI</label>
+                <input type="text" class="form-control" name="dni" asp-for="DNI"><br>
 
                 <label for="email">Email</label>
                 <input type="text" class="form-control" name="email" asp-for="Email"><br>
+                
+                <label for="telefono">Telefono</label>
+                <input type="text" class="form-control" name="telefono" asp-for="Telefono"><br>
+
 
                 <button type="submit" class="btn btn-warning">Edit</button>
             </div>

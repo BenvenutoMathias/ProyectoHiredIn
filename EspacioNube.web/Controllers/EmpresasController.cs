@@ -62,7 +62,7 @@ namespace EspacioNube.web.Controllers
             return View(/* _context.Empresas.ToList() */);
         }
 
-      /*   public IActionResult Editar(int id)
+        public IActionResult Editar(int id)
         {
             Empresa editar = _context.Empresas.Find(id);
             if (editar == null)
@@ -71,18 +71,21 @@ namespace EspacioNube.web.Controllers
             }
             return View(editar);
         }
-        public IActionResult Actualizar(int id, string nombre)
+        public IActionResult Actualizar(int id, string nombre, string rubro, string telefono, string email)
         {   
             Empresa editar = _context.Empresas.Find(id);
-            return View(editar);
+            
             if (editar != null)
             {
-                editar.NombreEmpresa = nombre;
+                 editar.NombreEmpresa = nombre;
+                 editar.Rubro = rubro;
+                 editar.Telefono = telefono;
+                 editar.Email = email;
                 _context.Empresas.Update(editar);
                 _context.SaveChanges();
             }
             return RedirectToAction("ConsultarEmpresas");
-        } */
+        }
     
     }
 

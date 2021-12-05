@@ -72,6 +72,31 @@ namespace EspacioNube.web.Controllers
             
             return View();
         }
+
+         public IActionResult Editar(int id)
+        {
+            Postulante editar = _context.Postulantes.Find(id);
+            if (editar == null)
+            {
+                return RedirectToAction("ConsultarPostulantes");
+            }
+            return View(editar);
+        }
+        public IActionResult Actualizar(int id, string nombre, string dni, string email, string telefono)
+        {   
+            Postulante editar = _context.Postulantes.Find(id);
+            
+            if (editar != null)
+            {
+                 editar.Nombre = nombre;
+                 editar.DNI = dni;
+                 editar.Email = email;
+                 editar.Telefono = telefono;
+                _context.Postulantes.Update(editar);
+                _context.SaveChanges();
+            }
+            return RedirectToAction("ConsultarPostulantes");
+        }
       
 
         
