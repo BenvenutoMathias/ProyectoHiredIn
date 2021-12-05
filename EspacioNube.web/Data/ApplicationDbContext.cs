@@ -49,14 +49,22 @@ namespace EspacioNube.web.Data
                 entityTypeBuilder.ToTable("User");
 
                 
+                builder.Entity<IdentityRole>(entiy => entiy.ToTable(name: "Roles"));
+            builder.Entity<IdentityUserRole<string>>(entity => entity.ToTable(name: "UsersRoles"));
+            builder.Entity<IdentityUserClaim<string>>(entity => entity.ToTable(name: "UsersClaims"));
+            builder.Entity<IdentityUserLogin<string>>(entity => entity.ToTable(name: "UsersLogins"));
+            builder.Entity<IdentityRoleClaim<string>>(entity => entity.ToTable(name: "RolesClaims"));
+            builder.Entity<IdentityUserToken<string>>(entity => entity.ToTable(name: "UsersTokens"));
+
+            
             });
+        /*  User */
 
             builder.Entity<Postulante>()
                         .HasMany<Empresa>(p => p.Empresas)
                         .WithMany(e => e.Postulantes)
                         .UsingEntity(pe => pe.ToTable("PostulanteEmpresa"));
         }
-        /*  User */
 
     }
     /* PARA AGREGAR PROPIEDADES A ENTITY */

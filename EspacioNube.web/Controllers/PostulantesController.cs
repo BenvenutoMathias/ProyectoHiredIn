@@ -97,6 +97,19 @@ namespace EspacioNube.web.Controllers
             }
             return RedirectToAction("ConsultarPostulantes");
         }
+
+        public IActionResult Eliminar(int ID)
+        {
+            Postulante Eliminar = _context.Postulantes.Find(ID);
+            
+            if (Eliminar != null)
+            {
+                _context.Postulantes.Remove(Eliminar);
+                _context.SaveChanges();
+            }
+                return RedirectToAction("ConsultarPostulantes");
+        }
+
       
 
         

@@ -607,3 +607,4 @@ C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Ra
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Empresas\Editar.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Empresas\_showParticalView.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Postulantes\Editar.cshtml.g.cs
+C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Home\_showPartialView.cshtml.g.cs
