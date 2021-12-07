@@ -1,9 +1,15 @@
-﻿
+﻿<!-- Button trigger modal -->
+@* <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+  Launch demo modal
+</button>
+ *@
+<!-- Modal -->
+
 <div class="btn-group-vertical">
   
-<button type="button" class="btn btn-primary"><a class="nav-link text-light" asp-action="ConsultarEmpresas" asp-controller="Empresas">Consultar empresas</a></button><br>
+<button type="button" class="btn btn-primary"><a class="nav-link text-light not" asp-action="ConsultarEmpresas" asp-controller="Empresas">Consultar empresas</a></button><br>
 
-<button type="button" class="btn btn-primary"><a class="nav-link text-light" asp-action="ConsultarPostulantes" asp-controller="Postulantes">Consultar Postulantes</a></button>
+<button type="button" class="btn btn-primary"><a class="nav-link text-light not" asp-action="ConsultarPostulantes" asp-controller="Postulantes">Consultar Postulantes</a></button>
 </div>
 
 @* <div class="text-center">
@@ -17,3 +23,21 @@
 </select>
 </div> *@
 
+
+
+@* <button onclick="$('#MiModal').modal('show');">abrir modal</button>
+<div class="modal" id="MiModal">
+    <div class="modal-header">
+        <p>Hola</p>
+    </div>
+    <div class="modal-body" style="margin-left: 50px;
+    border-right-width: 50px;
+    background: white;
+    margin-right: 50px;">
+       <p>Hola</p>
+    </div>
+    <div class="modal-footer">
+        <button onclick="$('#MiModal').modal('hide');">Cerrar modal</button>
+        <button onclick="Ejecutar();">ejecutar</button>
+    </div>
+</div> *@

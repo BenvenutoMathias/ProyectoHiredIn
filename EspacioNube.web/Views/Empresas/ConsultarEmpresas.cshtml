@@ -1,7 +1,6 @@
 @model List<Empresa>
 
-
-<table class="table tableborder">
+<table class="table">
 
   <thead>
     <tr>
@@ -16,8 +15,33 @@
     </tr>
   </thead>
 
-@foreach (var item in ViewBag.EmpresasList)
-{
+@foreach (var item in ViewBag.EmpresasList){
+      @foreach (var p in item.Postulantes)
+      {
+ @* modal *@
+<div class="modal fade MIMODAL" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p class="">@p.Nombre</p>
+        <p class="">@p.DNI</p>
+        <p class="">@p.Telefono</p>
+        <p class="">@p.Email</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+@* modal *@
+      } 
+ 
   <tbody>
     <tr>
       <th scope="row">@item.ID</th>
@@ -27,23 +51,22 @@
       <td>@item.Email</td>
       <td>@item.Postulantes.Count</td>
 
-      <td><button type="button" class="btn btn-warning"><a asp-action="Editar" asp-controller="Empresas" asp-route-id="@item.ID">Edit</a> </button>
-      <button type="button" class="btn btn-danger"> <a asp-action="Eliminar" asp-controller="Empresas" asp-route-id="@item.ID">Delete</a> </button>
-      @* <button type="button" class="btn btn-success"> <a asp-action="Eliminar" asp-controller="Empresas" asp-route-id="@item.ID">Delete</a> Details</button></td> *@
-      <button type="button" class="btn btn-success"> Details</button></td>
+      <td><button type="button" class="btn btn-warning"><a asp-action="Editar" asp-controller="Empresas" 
+      class=" text-light not" asp-route-id="@item.ID">Edit</a> </button>
+      <button type="button" class="btn btn-danger"> <a asp-action="Eliminar" asp-controller="Empresas" class=" text-light not" asp-route-id="@item.ID">Delete</a></button>
+      <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"><a class="text-light not">Details</a></button></td>
       
-      @* @foreach (var p in item.Postulantes)
-      {
-            <td>@p.Nombre</td>
-      } *@
+ 
     </tr>
     </tbody>
+
+    
 }
 
 </table>
           
 
-<button type="button" class="btn btn-primary"><a class="nav-link text-light" asp-action="ConsultarPostulantes" asp-controller="Postulantes">Consultar Postulantes</a></button>
+<button type="button" class="btn btn-primary"><a class="text-light not" asp-action="ConsultarPostulantes" asp-controller="Postulantes">Consultar Postulantes</a></button>
 
 
 

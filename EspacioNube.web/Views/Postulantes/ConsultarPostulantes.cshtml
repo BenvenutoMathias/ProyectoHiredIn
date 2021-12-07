@@ -25,12 +25,12 @@
         <td>@item.Email</td>
         <td>
           <button type="button" class="btn btn-warning"><a asp-action="Editar" asp-controller="Postulantes"
-            asp-route-id="@item.ID">Edit</a></button>
+          class="text-light not"  asp-route-id="@item.ID">Edit</a></button>
 
           <button type="button" class="btn btn-danger"><a asp-action="Eliminar" asp-controller="Postulantes"
-            asp-route-id="@item.ID">Delete</a></button>
+          class="text-light not"  asp-route-id="@item.ID">Delete</a></button>
 
-          <button type="button" class="btn btn-success">Details</button>
+          <button type="button" class="btn btn-success"><a class="text-light not">Details</a></button>
         </td>
 
       </tr>
@@ -38,5 +38,5 @@
   }
 
 </table>
-<button type="button" class="btn btn-primary"><a class="nav-link text-light" asp-action="ConsultarEmpresas"
+<button type="button" class="btn btn-primary"><a class="text-light not" asp-action="ConsultarEmpresas"
     asp-controller="Empresas">Consultar empresas</a></button>

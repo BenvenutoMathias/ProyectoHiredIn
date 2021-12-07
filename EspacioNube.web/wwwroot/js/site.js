@@ -1,12 +1,27 @@
-﻿let estado;
+﻿
+
+$("a").addClass("nav-link");
+let estado = true;
+
 
 const CambiarTema = () => {
-    if(estado){
-    $('#Cuerpo').removeClass("bodyWhite").removeClass("bodyDark bg-white");
-    $('#navBar').removeClass("navbar-light").addClass("navbar-dark bg-black");
+  
+  if (estado) {
+    $("#Tema").text("Claro");
+    $("#Tema").removeClass("btn-dark").addClass("btn-light");
+    $("a:not('.not')").removeClass("text-dark").addClass("text-light");
+    $("#Cuerpo").removeClass("bodyWhite").addClass("bodyDark");
+    $("table").addClass("table-dark");
+    $(".MIMODAL").css("color","black");
     estado = false;
-    }else{
-        estado = true;
-        $('#Cuerpo').removeClass("bodyDark").addClass("bodyWhite");
-    }
-}
+  } else {
+    
+    $("#Tema").text("Oscuro");
+    $("#Tema").removeClass("btn-light").addClass("btn-dark");
+      $("a:not('.not')").removeClass("text-light").addClass("text-dark");
+      $("#Cuerpo").removeClass("bodyDark").addClass("bodyWhite");
+      $("table").removeClass("table-dark");
+      
+      estado = true;
+  }
+};
