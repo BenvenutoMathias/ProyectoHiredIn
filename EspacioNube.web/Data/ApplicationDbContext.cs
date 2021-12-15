@@ -66,6 +66,7 @@ namespace EspacioNube.web.Data
                         .UsingEntity(pe => pe.ToTable("PostulanteEmpresa"));
         }
 
+        
     }
     /* PARA AGREGAR PROPIEDADES A ENTITY */
 

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EspacioNube.web.Controllers
 {
-
+    [Authorize(Roles = "Empresas, SuperAdmin")]
     public class EmpresasController : Controller
     {
         private ApplicationDbContext _context;

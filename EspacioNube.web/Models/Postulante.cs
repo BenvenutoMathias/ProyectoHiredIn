@@ -16,7 +16,6 @@ namespace EspacioNube.web.Models
         public string Email { get; set; }
         public string Telefono { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        
         public ICollection<Empresa> Empresas { get; set; }
 
         /* public static implicit operator Postulante(Postulante v)

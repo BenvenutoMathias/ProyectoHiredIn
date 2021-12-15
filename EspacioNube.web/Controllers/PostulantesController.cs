@@ -8,6 +8,7 @@ using System.Collections.Generic;
 
 namespace EspacioNube.web.Controllers
 {
+    [Authorize(Roles = "UserDefault, SuperAdmin")]
     public class PostulantesController : Controller
     {
         private ApplicationDbContext _context;
