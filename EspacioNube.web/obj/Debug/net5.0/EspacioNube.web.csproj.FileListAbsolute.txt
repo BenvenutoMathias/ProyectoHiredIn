@@ -585,7 +585,6 @@ C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Ra
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Areas\Identity\Pages\_ViewStart.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Empresas\EmpresaRegistrada.cshtml.g.cs
-C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Empresas\Index.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Form\DatosContacto.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Form\Formulario.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Home\Index.cshtml.g.cs
@@ -608,3 +607,5 @@ C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Ra
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Empresas\_showParticalView.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Postulantes\Editar.cshtml.g.cs
 C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Home\_showPartialView.cshtml.g.cs
+C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Empresas\DetalleEmpresa.cshtml.g.cs
+C:\Users\Matias\Desktop\CODIGO\comIT\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Empresas\CrearEmpresa.cshtml.g.cs

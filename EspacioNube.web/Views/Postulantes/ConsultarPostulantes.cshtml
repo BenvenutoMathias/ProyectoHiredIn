@@ -9,7 +9,7 @@
       <th scope="col">Telefono</th>
       <th scope="col">Email</th>
       <th scope="col"></th>
-      
+
     </tr>
   </thead>
 
@@ -25,12 +25,15 @@
         <td>@item.Email</td>
         <td>
           <button type="button" class="btn btn-warning"><a asp-action="Editar" asp-controller="Postulantes"
-          class="text-light not"  asp-route-id="@item.ID">Edit</a></button>
+            class="text-light not" asp-route-id="@item.ID">Editar</a></button>
 
           <button type="button" class="btn btn-danger"><a asp-action="Eliminar" asp-controller="Postulantes"
-          class="text-light not"  asp-route-id="@item.ID">Delete</a></button>
+            class="text-light not" asp-route-id="@item.ID">Eliminar</a></button>
 
-          <button type="button" class="btn btn-success"><a class="text-light not">Details</a></button>
+          <button type="button" class="btn btn-success"><a 
+            class="text-light not" asp-route-id="@item.ID">Detalle</a></button>
+
+
         </td>
 
       </tr>
@@ -38,5 +41,5 @@
   }
 
 </table>
-<button type="button" class="btn btn-primary"><a class="text-light not" asp-action="ConsultarEmpresas"
-    asp-controller="Empresas">Consultar empresas</a></button>
+  <button type="button" class="btn btn-primary"><a class="text-light not" asp-action="ConsultarEmpresas"
+  asp-controller="Empresas">Consultar empresas</a></button>

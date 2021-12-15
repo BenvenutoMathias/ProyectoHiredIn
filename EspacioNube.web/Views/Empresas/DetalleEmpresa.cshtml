@@ -1,0 +1,34 @@
+
+
+@foreach (var item in ViewBag.empresaDetail)
+{   
+    <h1>Postulantes</h1>
+    @foreach (var p in item.Postulantes)
+    {   
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th class="col">Nombre</th>
+                <th class="col">Dni</th>
+                <th class="col">Telefono</th>
+                <th class="col">Email</th>
+            </tr>
+            </thead>
+            <tbody>
+                <tr>
+                <td>@p.Nombre</td>
+                <td>@p.DNI</td>
+                <td>@p.Telefono</td>
+                <td>@p.Email</td>
+                </tr>
+            </tbody>
+            
+                
+                
+            
+        </table>
+     
+    }
+}
+        <button type="button" class="btn btn-primary"><a asp-action="ConsultarEmpresas" asp-controller="Empresas" class="text-light not">Regresar</a></button>

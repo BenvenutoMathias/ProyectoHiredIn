@@ -39,14 +39,12 @@ namespace EspacioNube.web.Controllers
             Postulante NuevoPostulante = new Postulante()
             {
                 Nombre = nombre,
-                /*  Apellido = apellido, */ 
                 DNI = dni,
                 Telefono = telefono,
                 Email = email,
                 FechaNacimiento = fechaNacimiento,
                 Empresas = newList,
-               /*  Genero = genero, */
-
+    
             };
 
             _context.Postulantes.Add(NuevoPostulante);

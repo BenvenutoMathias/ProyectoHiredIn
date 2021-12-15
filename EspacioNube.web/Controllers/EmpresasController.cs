@@ -19,17 +19,17 @@ namespace EspacioNube.web.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
+        public IActionResult CrearEmpresa()
         {
             return View();
         }
 
 
-        public IActionResult Crear()
+      /*   public IActionResult Crear()
         {
 
             return RedirectToAction("Index");
-        }
+        } */
         [HttpPost]
         public IActionResult Guardar(string nombre, string rubro, string telefono, string email, string sucursal, string ubicacion)
         {
@@ -59,8 +59,26 @@ namespace EspacioNube.web.Controllers
         public IActionResult ConsultarEmpresas()
         {
             ViewBag.EmpresasList = _context.Empresas.Include("Postulantes").ToList();
-            return View(/* _context.Empresas.ToList() */);
+            return View();
         }
+
+
+
+        public IActionResult DetalleEmpresa(int ID)
+        {   
+           
+            var empresa = _context.Empresas.Where(e => e.ID == ID).Include("Postulantes").FirstOrDefault();
+            
+            if (empresa.Postulantes.Count == 0 || empresa.Postulantes == null)
+            {
+                return RedirectToAction("ConsultarEmpresas");
+            }
+
+            ViewBag.empresaDetail = _context.Empresas.Where(e => e.ID == ID).Include("Postulantes");
+            return View();
+        }
+
+        
 
         public IActionResult Editar(int id)
         {
@@ -90,7 +108,7 @@ namespace EspacioNube.web.Controllers
         public IActionResult Eliminar(int ID)
         {
             Empresa Eliminar = _context.Empresas.Find(ID);
-            /* var empresa = _context.Empresas.Where(e => e.ID == ID); */
+            
             if (Eliminar != null)
             {
                 _context.Empresas.Remove(Eliminar);

@@ -1,5 +1,6 @@
 ﻿using EspacioNube.web.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -20,12 +21,11 @@ namespace EspacioNube.web.Controllers
 
         public IActionResult Index()
         {
+       
             return View();
         }
 
-    
-
-        
+       
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
