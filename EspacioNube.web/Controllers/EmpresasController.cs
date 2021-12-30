@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EspacioNube.web.Controllers
 {
-    [Authorize(Roles = "Empresas, SuperAdmin")]
+    [Authorize(Roles = "Empresa, SuperAdmin")]
     public class EmpresasController : Controller
     {
         private ApplicationDbContext _context;
@@ -19,6 +19,10 @@ namespace EspacioNube.web.Controllers
             _context = context;
         }
 
+        public IActionResult Index()
+        {
+            return View();
+        }
         public IActionResult CrearEmpresa()
         {
             return View();

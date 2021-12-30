@@ -1,8 +1,42 @@
-﻿
-<div class="btn-group-vertical">
-  
-<button type="button" class="btn btn-primary"><a class="nav-link text-light not" asp-action="ConsultarEmpresas" asp-controller="Empresas">Consultar empresas</a></button><br>
+﻿@using Microsoft.AspNetCore.Identity
+@using EspacioNube.web.Data
+@inject SignInManager<User> SignInManager
+@inject UserManager<User> UserManager
 
-<button type="button" class="btn btn-primary"><a class="nav-link text-light not" asp-action="ConsultarPostulantes" asp-controller="Postulantes">Consultar Postulantes</a></button>
-</div>
 
+
+@if (SignInManager.IsSignedIn(User))
+{
+    User loggedUser = await UserManager.GetUserAsync(User);
+    if (await UserManager.IsInRoleAsync(loggedUser, "SuperAdmin"))
+    {
+
+        <table class="table">
+            <tr>
+                <th><a class="nav-link">Crear Post</a></th>
+                <th><a class="nav-link">Crear Empresa</a></th>
+                <th><a class="nav-link">Consultar Empresas</a></th>
+                <th><a class="nav-link">Consultar Postulantes</a></th>
+            </tr>
+        </table>
+
+    }
+
+    if (await UserManager.IsInRoleAsync(loggedUser, "UserDefault"))
+    {
+
+    }
+
+    if (await UserManager.IsInRoleAsync(loggedUser, "Empresa"))
+    {
+        <table class="table">
+            <tr>
+                <th><a class="nav-link">Crear Post</a></th>
+                <th><a class="nav-link">Crear Empresa</a></th>
+                <th><a class="nav-link">Consultar Empresas</a></th>
+                <th><a class="nav-link">Consultar Postulantes</a></th>
+            </tr>
+        </table>
+    }
+
+}

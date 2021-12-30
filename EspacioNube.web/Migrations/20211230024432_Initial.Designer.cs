@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace EspacioNube.web.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20211209202248_Presentacion")]
-    partial class Presentacion
+    [Migration("20211230024432_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -250,6 +250,9 @@ namespace EspacioNube.web.Migrations
 
                     b.Property<string>("FirstName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<byte[]>("Foto")
+                        .HasColumnType("varbinary(max)");
 
                     b.Property<string>("Gender")
                         .HasColumnType("nvarchar(max)");

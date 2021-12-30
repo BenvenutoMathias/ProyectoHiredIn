@@ -25,7 +25,8 @@ namespace EspacioNube.web.Areas.Identity.Pages.Account
         private readonly UserManager<User> _userManager;
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
-
+        
+ 
         public RegisterModel(
             UserManager<User> userManager,
             SignInManager<User> signInManager,
@@ -36,6 +37,7 @@ namespace EspacioNube.web.Areas.Identity.Pages.Account
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
+           
         }
 
         [BindProperty]
@@ -48,7 +50,6 @@ namespace EspacioNube.web.Areas.Identity.Pages.Account
         public class InputModel
         {
             [Required]
-            
             [Display(Name = "Rol")]
             public string Role { get; set; }
 
@@ -86,7 +87,7 @@ namespace EspacioNube.web.Areas.Identity.Pages.Account
             ReturnUrl = returnUrl;
             ExternalLogins = (await _signInManager.GetExternalAuthenticationSchemesAsync()).ToList();
         }
-
+        
         public async Task<IActionResult> OnPostAsync(string returnUrl = null)
         {
             returnUrl ??= Url.Content("~/");
@@ -129,6 +130,7 @@ namespace EspacioNube.web.Areas.Identity.Pages.Account
                 {
                     ModelState.AddModelError(string.Empty, error.Description);
                 }
+                
             }
 
             // If we got this far, something failed, redisplay form

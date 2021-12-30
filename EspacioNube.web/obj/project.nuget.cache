@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "XhbkBp8cQ2lHoMy3NBZkkmV0d1bnDkEVRENXDr7FiBxeI3VNmxcvCEe/CjCwlXOjAJSSXhA3nVuYk+5q+kc+DA==",
+  "dgSpecHash": "w1JH7/Nyp2vnDji3U2KEF6oTtEgxRFTFYKdWZvt9Ccksu5ng3uSJJ6Eaew+PpE1508z7NaLd+60uNMn+LjMoWQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Matias\\Desktop\\CODIGO\\comIT\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
+  "projectFilePath": "C:\\Users\\Matias\\Desktop\\Proyectos\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Matias\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Matias\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\5.0.11\\microsoft.aspnetcore.cryptography.internal.5.0.11.nupkg.sha512",
