@@ -9,7 +9,7 @@ using EspacioNube.web.Models;
 
 namespace EspacioNube.web.Data
 {
-    public class ApplicationDbContext : IdentityDbContext<User>
+    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -17,34 +17,17 @@ namespace EspacioNube.web.Data
         }
         public DbSet<Postulante> Postulantes { get; set; }
         public DbSet<Empresa> Empresas { get; set; }
+        public DbSet<Post> Post { get; set; }
 
-        /* Agregado */
-        // protected override void OnModelCreating(System.Data.Entity.DbModelBuilder modelBuilder)
-        // {
-
-
-
-        //     modelBuilder.Entity<Postulante>()
-        //                 .HasMany<Empresa>(p => p.Empresas)
-        //                 .WithMany(e => e.Postulantes)
-        //                 .Map(cs =>
-        //                         {
-        //                             cs.MapLeftKey("PostulanteRefId");
-        //                             cs.MapRightKey("EmpresaRefId");
-        //                             cs.ToTable("PostulanteEmpresa");
-        //                         });
-
-        // }
-
-        /* Agregado */
+       
 
 
         /* PARA AGREGAR PROPIEDADES A ENTITY */
-        /*  User */
+        
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<User>(entityTypeBuilder =>
+            builder.Entity<ApplicationUser>(entityTypeBuilder =>
             {
                 entityTypeBuilder.ToTable("User");
 
@@ -58,8 +41,9 @@ namespace EspacioNube.web.Data
 
             
             });
-        /*  User */
-
+       
+           /*  builder.Entity<Empresa>()
+                        .HasMany<Post>(p =>p.Post) */
             builder.Entity<Postulante>()
                         .HasMany<Empresa>(p => p.Empresas)
                         .WithMany(e => e.Postulantes)

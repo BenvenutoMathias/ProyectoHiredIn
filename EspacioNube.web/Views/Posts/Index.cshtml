@@ -1,0 +1,32 @@
+@* <table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Ofertas de Empleo</th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+        @foreach (var item in ViewBag.Publicaciones)
+        {
+        <tbody>
+        <div class="container">        
+            <tr>
+                <td>@item.HeaderPost</td>
+                <td>@item.BodyPost</td>
+                <td><button class="btn btn-primary text-light"><a class="nav-link not text-light" href="">Enviar CV</a></button></td>
+            </tr>
+        </div>
+        </tbody>
+        }
+</tab>
+ *@
+
+ @foreach (var item in ViewBag.Publicaciones)
+ {
+    <div class="container post col-4">
+       <h3>@item.HeaderPost</h3>
+       <p>@item.BodyPost</p>
+       <button type="button" class="btn btn-primary text-light"><a class="nav-link not text-light" href="">Enviar CV</a></button>
+    </div>
+ }

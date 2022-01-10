@@ -1,11 +1,7 @@
 {
   "ExpandedNodes": [
-    "",
-    "\\Controllers",
-    "\\wwwroot",
-    "\\wwwroot\\css",
-    "\\wwwroot\\js"
+    ""
   ],
-  "SelectedNode": "\\Controllers\\PostulantesController.cs",
+  "SelectedNode": "\\Startup.cs",
   "PreviewInSolutionExplorer": false
 }

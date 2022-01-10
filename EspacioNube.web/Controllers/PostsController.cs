@@ -19,10 +19,31 @@ namespace EspacioNube.web.Controllers
         }
 
         public IActionResult Index()
-        {
+        {   
+            ViewBag.Publicaciones = _context.Post.ToList();
             return View();
         }
 
+        public IActionResult CrearPost()
+        {  
+            return View();
+        }
+
+        public IActionResult Guardar(string titulo, string descripcion)
+        {  
+             Post NuevoPost = new Post()
+            {
+                HeaderPost = titulo,
+                BodyPost = descripcion,
+            };
+
+            /* List<Post> Publicaciones = new List<Post>();
+            Publicaciones.Add(NuevoPost); */
+            _context.Post.Add(NuevoPost);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
+        }
 
     }
 }

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace EspacioNube.web.Migrations
 {
-    public partial class Initial : Migration
+    public partial class applicationUser : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

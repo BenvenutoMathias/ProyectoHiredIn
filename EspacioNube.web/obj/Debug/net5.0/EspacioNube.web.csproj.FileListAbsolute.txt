@@ -827,3 +827,8 @@ C:\Users\Matias\Desktop\Proyectos\HiredIn\EspacioNube.web\obj\Debug\net5.0\Espac
 C:\Users\Matias\Desktop\Proyectos\HiredIn\EspacioNube.web\obj\Debug\net5.0\EspacioNube.web.csproj.CopyComplete
 C:\Users\Matias\Desktop\Proyectos\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Empresas\Index.cshtml.g.cs
 C:\Users\Matias\Desktop\Proyectos\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Empresas\_showPartialView.cshtml.g.cs
+C:\Users\Matias\Desktop\Proyectos\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\RoleManager\Index.cshtml.g.cs
+C:\Users\Matias\Desktop\Proyectos\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Posts\CrearPost.cshtml.g.cs
+C:\Users\Matias\Desktop\Proyectos\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\Posts\Index.cshtml.g.cs
+C:\Users\Matias\Desktop\Proyectos\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\UserRoles\Index.cshtml.g.cs
+C:\Users\Matias\Desktop\Proyectos\HiredIn\EspacioNube.web\obj\Debug\net5.0\Razor\Views\UserRoles\Manage.cshtml.g.cs

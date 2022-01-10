@@ -17,6 +17,7 @@ namespace EspacioNube.web.Models
         public string Email { get; set; }
         public string Sucursal { get; set; }
         public string UbicacionSucursal { get; set; }
+        public ICollection<Post> Publicaciones { get; set; }
         public ICollection<Postulante> Postulantes { get; set; }
         
 

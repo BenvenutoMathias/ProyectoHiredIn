@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using EspacioNube.web.Data
-@inject SignInManager<User> SignInManager
-@inject UserManager<User> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,9 +29,9 @@
                         <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index" >HiredIn</a>                          
                         </li>
 
-                        @if (SignInManager.IsSignedIn(User))
+                       @*  @if (SignInManager.IsSignedIn(User))
                         {
-                            User loggedUser = await UserManager.GetUserAsync(User);
+                            ApplicationUser loggedUser = await UserManager.GetUserAsync(User);
                             if(await UserManager.IsInRoleAsync(loggedUser, "SuperAdmin"))
                             {
                                 <li class="nav-item">
@@ -57,7 +57,7 @@
                                 </li>
                             }
                             
-                        }
+                        } *@
                         <li class="nav-item">
                            <button type="button" class="btn btn-dark" id="Tema" onclick="CambiarTema()">Oscuro</button>
                         </li>
@@ -70,7 +70,7 @@
             </div>
         </nav>
     </header>
-    <div class="container" id="render">
+    <div class="container bodyWhite" id="render">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>

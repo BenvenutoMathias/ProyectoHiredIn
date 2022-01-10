@@ -15759,6 +15759,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Matias\\Desktop\\Proyectos\\HiredIn\\EspacioNube.web\\Views\\RoleManager\\Index.cshtml",
+      "TargetPath": "Views\\RoleManager\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Matias\\Desktop\\Proyectos\\HiredIn\\EspacioNube.web\\Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\ShowRecoveryCodes.cshtml",
       "FileKind": "mvc"
@@ -15766,6 +15771,11 @@
     {
       "FilePath": "c:\\Users\\Matias\\Desktop\\Proyectos\\HiredIn\\EspacioNube.web\\Areas\\Identity\\Pages\\Account\\ConfirmEmailChange.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\ConfirmEmailChange.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Matias\\Desktop\\Proyectos\\HiredIn\\EspacioNube.web\\Views\\UserRoles\\Manage.cshtml",
+      "TargetPath": "Views\\UserRoles\\Manage.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15781,6 +15791,11 @@
     {
       "FilePath": "c:\\Users\\Matias\\Desktop\\Proyectos\\HiredIn\\EspacioNube.web\\Areas\\Identity\\Pages\\Account\\ResetPasswordConfirmation.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\ResetPasswordConfirmation.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Matias\\Desktop\\Proyectos\\HiredIn\\EspacioNube.web\\Views\\Posts\\CrearPost.cshtml",
+      "TargetPath": "Views\\Posts\\CrearPost.cshtml",
       "FileKind": "mvc"
     },
     {
@@ -15864,6 +15879,11 @@
       "FileKind": "mvc"
     },
     {
+      "FilePath": "c:\\Users\\Matias\\Desktop\\Proyectos\\HiredIn\\EspacioNube.web\\Views\\Posts\\Index.cshtml",
+      "TargetPath": "Views\\Posts\\Index.cshtml",
+      "FileKind": "mvc"
+    },
+    {
       "FilePath": "c:\\Users\\Matias\\Desktop\\Proyectos\\HiredIn\\EspacioNube.web\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Register.cshtml",
       "FileKind": "mvc"
@@ -15876,6 +15896,11 @@
     {
       "FilePath": "c:\\Users\\Matias\\Desktop\\Proyectos\\HiredIn\\EspacioNube.web\\Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
       "TargetPath": "Areas\\Identity\\Pages\\Account\\Manage\\GenerateRecoveryCodes.cshtml",
+      "FileKind": "mvc"
+    },
+    {
+      "FilePath": "c:\\Users\\Matias\\Desktop\\Proyectos\\HiredIn\\EspacioNube.web\\Views\\UserRoles\\Index.cshtml",
+      "TargetPath": "Views\\UserRoles\\Index.cshtml",
       "FileKind": "mvc"
     },
     {

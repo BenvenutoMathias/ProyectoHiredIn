@@ -1,7 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using EspacioNube.web.Data
-@inject SignInManager<User> SignInManager
-@inject UserManager<User> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
 
 
 <ul class="navbar-nav">
@@ -14,6 +14,12 @@
         <form  class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
             <button  type="submit" class="nav-link btn btn-link text-dark">Cerrar sesion</button>
         </form>
+    </li>
+    <li class="nav-item" style="align-self: center;">
+        @if (UserManager.GetUserAsync(User).Result.Photo!= null)
+        {
+            <img style="width:40px;height:40px; object-fit:cover; border-radius:30px" src="data:image/*;base64,@(Convert.ToBase64String(UserManager.GetUserAsync(User).Result.Photo))">
+        }
     </li>
 }
 else

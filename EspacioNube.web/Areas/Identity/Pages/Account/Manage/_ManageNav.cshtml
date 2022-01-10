@@ -1,5 +1,5 @@
 @using EspacioNube.web.Data;
-@inject SignInManager<User> SignInManager
+@inject SignInManager<ApplicationUser> SignInManager
 @{
     var hasExternalLogins = (await SignInManager.GetExternalAuthenticationSchemesAsync()).Any();
 }

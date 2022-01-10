@@ -7,17 +7,19 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using EspacioNube.web.Data;
+using Microsoft.AspNetCore.Http;
+using System.IO;
 
 namespace EspacioNube.web.Areas.Identity.Pages.Account.Manage
 {
     public partial class IndexModel : PageModel
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _signInManager;
+        private readonly UserManager<ApplicationUser> _userManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
         public IndexModel(
-            UserManager<User> userManager,
-            SignInManager<User> signInManager)
+            UserManager<ApplicationUser> userManager,
+            SignInManager<ApplicationUser> signInManager)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -32,23 +34,37 @@ namespace EspacioNube.web.Areas.Identity.Pages.Account.Manage
         public InputModel Input { get; set; }
 
         public class InputModel
-        {
+        {   
+            [Display(Name = "Nombre")]
+            public string FirstName { get; set; }
+            [Display(Name = "Apellido")]
+            public string LastName { get; set; }
+            [Display(Name = "Nombre de usuario")]
+            public string UserName { get; set; }
             [Phone]
-            [Display(Name = "Phone number")]
+            [Display(Name = "Numero telefónico")]
             public string PhoneNumber { get; set; }
+            [Display(Name = "Foto de perfil")]
+            public byte[] ProfilePicture { get; set; }
         }
 
-        private async Task LoadAsync(User user)
+        private async Task LoadAsync(ApplicationUser user)
         {
             var userName = await _userManager.GetUserNameAsync(user);
             var phoneNumber = await _userManager.GetPhoneNumberAsync(user);
-
+            var firstName = user.FirstName;
+            var lastName = user.LastName;
+            var profilePicture = user.Photo;
             Username = userName;
-
             Input = new InputModel
             {
-                PhoneNumber = phoneNumber
+                PhoneNumber = phoneNumber,
+                UserName = userName,
+                FirstName = firstName,
+                LastName = lastName,
+                ProfilePicture = profilePicture
             };
+
         }
 
         public async Task<IActionResult> OnGetAsync()
@@ -66,6 +82,19 @@ namespace EspacioNube.web.Areas.Identity.Pages.Account.Manage
         public async Task<IActionResult> OnPostAsync()
         {
             var user = await _userManager.GetUserAsync(User);
+            var firstName = user.FirstName;
+            var lastName = user.LastName;
+            var userName = user.UserName;
+            if (Input.FirstName != firstName)
+            {
+                user.FirstName = Input.FirstName;
+                await _userManager.UpdateAsync(user);
+            }
+            if (Input.LastName != lastName )
+            {
+                user.LastName = Input.LastName;
+                await _userManager.UpdateAsync(user);
+            }
             if (user == null)
             {
                 return NotFound($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
@@ -87,9 +116,19 @@ namespace EspacioNube.web.Areas.Identity.Pages.Account.Manage
                     return RedirectToPage();
                 }
             }
+            if (Request.Form.Files.Count>0)
+            {
+                IFormFile file = Request.Form.Files.FirstOrDefault();
+                using (var dataStream = new MemoryStream())
+                {
+                    await file.CopyToAsync(dataStream);
+                    user.Photo = dataStream.ToArray();
+                }
+                await _userManager.UpdateAsync(user);
+            }
 
             await _signInManager.RefreshSignInAsync(user);
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "Tus datos han sido actualizados";
             return RedirectToPage();
         }
     }

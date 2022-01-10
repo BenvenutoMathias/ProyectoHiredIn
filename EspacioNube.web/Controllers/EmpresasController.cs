@@ -29,11 +29,7 @@ namespace EspacioNube.web.Controllers
         }
 
 
-      /*   public IActionResult Crear()
-        {
-
-            return RedirectToAction("Index");
-        } */
+    
         [HttpPost]
         public IActionResult Guardar(string nombre, string rubro, string telefono, string email, string sucursal, string ubicacion)
         {

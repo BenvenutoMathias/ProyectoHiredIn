@@ -5,7 +5,7 @@ namespace EspacioNube.web.Data
 {   
     public static class ContextSeed
     {
-        public static async Task SeedRolesAsync(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        public static async Task SeedRolesAsync(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
         {
             await roleManager.CreateAsync(new IdentityRole("SuperAdmin"));
             await roleManager.CreateAsync(new IdentityRole("UserDefault"));
@@ -13,10 +13,10 @@ namespace EspacioNube.web.Data
         }
 
         
-        public static async Task SeedSuperAdminAsync(UserManager<User> userManager, RoleManager<IdentityRole> roleManager)
+        public static async Task SeedSuperAdminAsync(UserManager<ApplicationUser> userManager, RoleManager<IdentityRole> roleManager)
 {
     //Seed Default User
-    var defaultUser = new User 
+    var defaultUser = new ApplicationUser 
     { 
         UserName = "superadmin", 
         Email = "mathiasdvt7@gmail.com",
@@ -33,8 +33,8 @@ namespace EspacioNube.web.Data
         {
             await userManager.CreateAsync(defaultUser, "Contraseña23!");
             await userManager.AddToRoleAsync(defaultUser, "SuperAdmin");
-            await userManager.AddToRoleAsync(defaultUser, "Empresa");
-            await userManager.AddToRoleAsync(defaultUser, "UserDefault");
+           /*  await userManager.AddToRoleAsync(defaultUser, "Empresa");
+            await userManager.AddToRoleAsync(defaultUser, "UserDefault"); */
             
         }
         
