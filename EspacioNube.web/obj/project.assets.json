@@ -7627,11 +7627,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Matias\\Desktop\\Proyectos\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
+      "projectUniqueName": "C:\\Proyectos\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
       "projectName": "EspacioNube.web",
-      "projectPath": "C:\\Users\\Matias\\Desktop\\Proyectos\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
+      "projectPath": "C:\\Proyectos\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
       "packagesPath": "C:\\Users\\Matias\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Matias\\Desktop\\Proyectos\\HiredIn\\EspacioNube.web\\obj\\",
+      "outputPath": "C:\\Proyectos\\HiredIn\\EspacioNube.web\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Matias\\AppData\\Roaming\\NuGet\\NuGet.Config",
