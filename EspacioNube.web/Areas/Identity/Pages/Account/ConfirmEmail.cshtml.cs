@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using EspacioNube.web.Data;
+using DataAccess.Models;
 
 namespace EspacioNube.web.Areas.Identity.Pages.Account
 {

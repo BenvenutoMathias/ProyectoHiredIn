@@ -1,38 +1,34 @@
-using System;
-using EspacioNube.web.Data;
-using EspacioNube.web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
-using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
+using DataAccess.Models;
+using DataAccess.Base;
 
 namespace EspacioNube.web.Controllers
 {
     [Authorize(Roles = "Empresa, SuperAdmin")]
     public class EmpresasController : Controller
     {
-        private ApplicationDbContext _context;
 
-        public EmpresasController(ApplicationDbContext context)
+        public EmpresasController()
         {
-            _context = context;
         }
 
         public IActionResult Index()
         {
             return View();
         }
+
         public IActionResult CrearEmpresa()
         {
             return View();
         }
-
-
     
         [HttpPost]
         public IActionResult Guardar(string nombre, string rubro, string telefono, string email, string sucursal, string ubicacion)
         {
+            var BaseManager = new BaseManager();
 
             Empresa NuevaEmpresa = new Empresa()
             {
@@ -43,8 +39,8 @@ namespace EspacioNube.web.Controllers
                 Sucursal = sucursal,
             };
 
-            _context.Empresas.Add(NuevaEmpresa);
-            _context.SaveChanges();
+            BaseManager.contextoSingleton.Empresas.Add(NuevaEmpresa);
+            BaseManager.contextoSingleton.SaveChangesAsync();
 
             return RedirectToAction("EmpresaRegistrada");
         }
@@ -58,23 +54,29 @@ namespace EspacioNube.web.Controllers
 
         public IActionResult ConsultarEmpresas()
         {
-            ViewBag.EmpresasList = _context.Empresas.Include("Postulantes").ToList();
+            var BaseManager = new BaseManager();
+
+            ViewBag.EmpresasList = BaseManager.contextoSingleton.Empresas.Include("Postulantes").ToList();
+
             return View();
         }
 
 
 
         public IActionResult DetalleEmpresa(int ID)
-        {   
-           
-            var empresa = _context.Empresas.Where(e => e.ID == ID).Include("Postulantes").FirstOrDefault();
+        {
+
+            var BaseManager = new BaseManager();
+
+            var empresa = BaseManager.contextoSingleton.Empresas.Where(e => e.ID == ID).Include("Postulantes").FirstOrDefault();
             
             if (empresa.Postulantes.Count == 0 || empresa.Postulantes == null)
             {
                 return RedirectToAction("ConsultarEmpresas");
             }
 
-            ViewBag.empresaDetail = _context.Empresas.Where(e => e.ID == ID).Include("Postulantes");
+            ViewBag.empresaDetail = BaseManager.contextoSingleton.Empresas.Where(e => e.ID == ID).Include("Postulantes");
+
             return View();
         }
 
@@ -82,16 +84,22 @@ namespace EspacioNube.web.Controllers
 
         public IActionResult Editar(int id)
         {
-            Empresa editar = _context.Empresas.Find(id);
+            var BaseManager = new BaseManager();
+
+            Empresa editar = BaseManager.contextoSingleton.Empresas.Find(id);
+
             if (editar == null)
             {
                 return RedirectToAction("ConsultarEmpresas");
             }
             return View(editar);
         }
+
         public IActionResult Actualizar(int id, string nombre, string rubro, string telefono, string email)
         {
-            Empresa editar = _context.Empresas.Find(id);
+            var BaseManager = new BaseManager();
+
+            Empresa editar = BaseManager.contextoSingleton.Empresas.Find(id);
 
             if (editar != null)
             {
@@ -99,20 +107,23 @@ namespace EspacioNube.web.Controllers
                 editar.Rubro = rubro;
                 editar.Telefono = telefono;
                 editar.Email = email;
-                _context.Empresas.Update(editar);
-                _context.SaveChanges();
+
+                BaseManager.contextoSingleton.Empresas.Update(editar);
+                BaseManager.contextoSingleton.SaveChangesAsync();
             }
             return RedirectToAction("ConsultarEmpresas");
         }
 
         public IActionResult Eliminar(int ID)
         {
-            Empresa Eliminar = _context.Empresas.Find(ID);
+            var BaseManager = new BaseManager();
+
+            Empresa Eliminar = BaseManager.contextoSingleton.Empresas.Find(ID);
             
             if (Eliminar != null)
             {
-                _context.Empresas.Remove(Eliminar);
-                _context.SaveChanges();
+                BaseManager.contextoSingleton.Empresas.Remove(Eliminar);
+                BaseManager.contextoSingleton.SaveChangesAsync();
             }
                 return RedirectToAction("ConsultarEmpresas");
         }

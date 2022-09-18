@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using EspacioNube.web.Data;
+using DataAccess.Models;
 
 namespace EspacioNube.web.Areas.Identity.Pages.Account.Manage
 {

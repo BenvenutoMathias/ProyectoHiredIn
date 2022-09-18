@@ -13,9 +13,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
-using EspacioNube.web.Data;
 using System.Net.Mail;
-
+using DataAccess.Models;
 
 namespace EspacioNube.web.Areas.Identity.Pages.Account
 {
@@ -27,18 +26,12 @@ namespace EspacioNube.web.Areas.Identity.Pages.Account
         private readonly ILogger<RegisterModel> _logger;
         private readonly IEmailSender _emailSender;
         
- 
-        public RegisterModel(
-            UserManager<ApplicationUser> userManager,
-            SignInManager<ApplicationUser> signInManager,
-            ILogger<RegisterModel> logger,
-            IEmailSender emailSender)
+        public RegisterModel(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, ILogger<RegisterModel> logger, IEmailSender emailSender)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
             _emailSender = emailSender;
-           
         }
 
         [BindProperty]
@@ -50,10 +43,6 @@ namespace EspacioNube.web.Areas.Identity.Pages.Account
 
         public class InputModel
         {
-        /*     [Required]
-            [Display(Name = "Rol")]
-            public string Role { get; set; } */
-
             [Required]
             [EmailAddress]
             [Display(Name = "Email")]

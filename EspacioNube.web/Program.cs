@@ -1,18 +1,13 @@
-using EspacioNube.web.Data;
-
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-
-
-
+using DataAccess.Models;
+using DataAccess.ContexSeed;
+using DataAccess;
 
 namespace EspacioNube.web
 {
@@ -32,7 +27,7 @@ namespace EspacioNube.web
                     var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
                     await ContextSeed.SeedRolesAsync(userManager, roleManager);
                     await ContextSeed.SeedSuperAdminAsync(userManager, roleManager);
-                    
+
                 }
                 catch (Exception ex)
                 {
@@ -42,12 +37,12 @@ namespace EspacioNube.web
                 host.Run();
             }
         }
-
         public static IHostBuilder CreateHostBuilder(string[] args) =>
-            Host.CreateDefaultBuilder(args)
-                .ConfigureWebHostDefaults(webBuilder =>
-                {
-                    webBuilder.UseStartup<Startup>();
-                });
+                                                                   Host.CreateDefaultBuilder(args)
+                                                                   .ConfigureWebHostDefaults(webBuilder =>
+                                                                   {
+                                                                       webBuilder.UseStartup<Startup>();
+                                                                   });
     }
+    
 }

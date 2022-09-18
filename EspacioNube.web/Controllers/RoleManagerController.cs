@@ -1,6 +1,4 @@
-using System.Linq;
 using System.Threading.Tasks;
-using EspacioNube.web.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,11 +7,10 @@ public class RoleManagerController : Controller
 {
     private readonly RoleManager<IdentityRole> _roleManager;
     
-        public RoleManagerController(RoleManager<IdentityRole> roleManager)
-        {
-           
-            _roleManager = roleManager;
-        }
+    public RoleManagerController(RoleManager<IdentityRole> roleManager)
+    {
+        _roleManager = roleManager;
+    }
    
     public async Task<IActionResult> Index()
     {

@@ -1,26 +1,21 @@
-using System;
-using EspacioNube.web.Data;
-using EspacioNube.web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
-using System.Collections.Generic;
-using Microsoft.EntityFrameworkCore;
+using DataAccess.Base;
+using DataAccess.Models;
 
 namespace EspacioNube.web.Controllers
 {
     [Authorize(Roles = "Empresa, SuperAdmin")]
     public class PostsController : Controller
     {   
-        private ApplicationDbContext _context;
-        public PostsController(ApplicationDbContext context)
+        public PostsController()
         {
-            _context = context;
         }
 
         public IActionResult Index()
         {   
-            ViewBag.Publicaciones = _context.Post.ToList();
+            ViewBag.Publicaciones = BaseManager.contextoSingleton.Post.ToList();
             return View();
         }
 
@@ -32,15 +27,13 @@ namespace EspacioNube.web.Controllers
         public IActionResult Guardar(string titulo, string descripcion)
         {  
              Post NuevoPost = new Post()
-            {
+             {
                 HeaderPost = titulo,
                 BodyPost = descripcion,
-            };
+             };
 
-            /* List<Post> Publicaciones = new List<Post>();
-            Publicaciones.Add(NuevoPost); */
-            _context.Post.Add(NuevoPost);
-            _context.SaveChanges();
+            BaseManager.contextoSingleton.Post.Add(NuevoPost);
+            BaseManager.contextoSingleton.SaveChanges();
 
             return RedirectToAction("Index", "Home");
         }

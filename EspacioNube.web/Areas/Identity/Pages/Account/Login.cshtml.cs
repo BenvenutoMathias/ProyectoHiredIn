@@ -11,7 +11,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
-using EspacioNube.web.Data;
+using DataAccess.Models;
 using System.Net.Mail;
 
 namespace EspacioNube.web.Areas.Identity.Pages.Account

@@ -3,9 +3,9 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using EspacioNube.web.Models;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
+using DataAccess.Models;
 
 namespace EspacioNube.web.Controllers
 {

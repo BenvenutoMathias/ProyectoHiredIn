@@ -1,39 +1,32 @@
 using System;
-using EspacioNube.web.Data;
-using EspacioNube.web.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using Microsoft.AspNetCore.Authorization;
 using System.Collections.Generic;
+using DataAccess;
+using DataAccess.Base;
+using DataAccess.Models;
 
 namespace EspacioNube.web.Controllers
 {
     [Authorize(Roles = "UserDefault, SuperAdmin")]
     public class PostulantesController : Controller
     {
-        private ApplicationDbContext _context;
 
-        public PostulantesController(ApplicationDbContext context)
+        public PostulantesController()
         {
-            _context = context;
         }
 
-
-
-        /* [Authorize] */
         public IActionResult CrearPostulante()
         {
-            ViewBag.EmpresasList = _context.Empresas.ToList();
+            ViewBag.EmpresasList = BaseManager.contextoSingleton.Empresas.ToList();
 
             return View();
-
-
         }
-
 
         public IActionResult GuardarPostulante(string nombre, string dni, string telefono, string email, DateTime fechaNacimiento, int empresaID)
         {
-            Empresa empSel = _context.Empresas.Find(empresaID);
+            Empresa empSel = BaseManager.contextoSingleton.Empresas.Find(empresaID);
             List<Empresa> newList = new List<Empresa>();
             newList.Add(empSel);
             
@@ -48,33 +41,27 @@ namespace EspacioNube.web.Controllers
     
             };
 
-            _context.Postulantes.Add(NuevoPostulante);
-            _context.SaveChanges();
+            BaseManager.contextoSingleton.Postulantes.Add(NuevoPostulante);
+            BaseManager.contextoSingleton.SaveChanges();
 
             return RedirectToAction("PostulanteRegistrado");
 
         }
-
-        
-
-
         public IActionResult PostulanteRegistrado()
         {
             return View();
         }
-
         
         public IActionResult ConsultarPostulantes()
         {
-            ViewBag.PostulantesList = _context.Postulantes.ToList();
+            ViewBag.PostulantesList = BaseManager.contextoSingleton.Postulantes.ToList();
             
             
             return View();
         }
-
          public IActionResult Editar(int id)
         {
-            Postulante editar = _context.Postulantes.Find(id);
+            Postulante editar = BaseManager.contextoSingleton.Postulantes.Find(id);
             if (editar == null)
             {
                 return RedirectToAction("ConsultarPostulantes");
@@ -83,7 +70,7 @@ namespace EspacioNube.web.Controllers
         }
         public IActionResult Actualizar(int id, string nombre, string dni, string email, string telefono)
         {   
-            Postulante editar = _context.Postulantes.Find(id);
+            Postulante editar = BaseManager.contextoSingleton.Postulantes.Find(id);
             
             if (editar != null)
             {
@@ -91,27 +78,23 @@ namespace EspacioNube.web.Controllers
                  editar.DNI = dni;
                  editar.Email = email;
                  editar.Telefono = telefono;
-                _context.Postulantes.Update(editar);
-                _context.SaveChanges();
+                BaseManager.contextoSingleton.Postulantes.Update(editar);
+                BaseManager.contextoSingleton.SaveChanges();
             }
             return RedirectToAction("ConsultarPostulantes");
         }
 
         public IActionResult Eliminar(int ID)
         {
-            Postulante Eliminar = _context.Postulantes.Find(ID);
+            Postulante postulante = BaseManager.contextoSingleton.Postulantes.Find(ID);
             
             if (Eliminar != null)
             {
-                _context.Postulantes.Remove(Eliminar);
-                _context.SaveChanges();
+                BaseManager.contextoSingleton.Postulantes.Remove(postulante);
+                BaseManager.contextoSingleton.SaveChanges();
             }
-                return RedirectToAction("ConsultarPostulantes");
+
+            return RedirectToAction("ConsultarPostulantes");
         }
-
-      
-
-        
-
     }
 }
