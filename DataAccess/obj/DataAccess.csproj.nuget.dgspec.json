@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\mathi\\source\\repos\\Proyectos\\HiredIn\\DataAccess\\DataAccess.csproj": {}
+    "C:\\Users\\mathi\\Desktop\\HiredIn\\ProyectoHiredIn\\DataAccess\\DataAccess.csproj": {}
   },
   "projects": {
-    "C:\\Users\\mathi\\source\\repos\\Proyectos\\HiredIn\\DataAccess\\DataAccess.csproj": {
+    "C:\\Users\\mathi\\Desktop\\HiredIn\\ProyectoHiredIn\\DataAccess\\DataAccess.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\mathi\\source\\repos\\Proyectos\\HiredIn\\DataAccess\\DataAccess.csproj",
+        "projectUniqueName": "C:\\Users\\mathi\\Desktop\\HiredIn\\ProyectoHiredIn\\DataAccess\\DataAccess.csproj",
         "projectName": "DataAccess",
-        "projectPath": "C:\\Users\\mathi\\source\\repos\\Proyectos\\HiredIn\\DataAccess\\DataAccess.csproj",
+        "projectPath": "C:\\Users\\mathi\\Desktop\\HiredIn\\ProyectoHiredIn\\DataAccess\\DataAccess.csproj",
         "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\mathi\\source\\repos\\Proyectos\\HiredIn\\DataAccess\\obj\\",
+        "outputPath": "C:\\Users\\mathi\\Desktop\\HiredIn\\ProyectoHiredIn\\DataAccess\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

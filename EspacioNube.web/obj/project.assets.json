@@ -4063,6 +4063,16 @@
           "lib/netstandard1.3/System.Xml.XDocument.dll": {}
         }
       },
+      "Commons/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "compile": {
+          "bin/placeholder/Commons.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Commons.dll": {}
+        }
+      },
       "DataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -11127,6 +11137,11 @@
         "system.xml.xdocument.nuspec"
       ]
     },
+    "Commons/1.0.0": {
+      "type": "project",
+      "path": "../Commons/Commons.csproj",
+      "msbuildProject": "../Commons/Commons.csproj"
+    },
     "DataAccess/1.0.0": {
       "type": "project",
       "path": "../DataAccess/DataAccess.csproj",
@@ -11135,6 +11150,7 @@
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "Commons >= 1.0.0",
       "DataAccess >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.9",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.9",
@@ -11151,11 +11167,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mathi\\source\\repos\\Proyectos\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
+      "projectUniqueName": "C:\\Users\\mathi\\Desktop\\HiredIn\\ProyectoHiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
       "projectName": "EspacioNube.web",
-      "projectPath": "C:\\Users\\mathi\\source\\repos\\Proyectos\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
+      "projectPath": "C:\\Users\\mathi\\Desktop\\HiredIn\\ProyectoHiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
       "packagesPath": "C:\\Users\\mathi\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mathi\\source\\repos\\Proyectos\\HiredIn\\EspacioNube.web\\obj\\",
+      "outputPath": "C:\\Users\\mathi\\Desktop\\HiredIn\\ProyectoHiredIn\\EspacioNube.web\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -11176,8 +11192,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "C:\\Users\\mathi\\source\\repos\\Proyectos\\HiredIn\\DataAccess\\DataAccess.csproj": {
-              "projectPath": "C:\\Users\\mathi\\source\\repos\\Proyectos\\HiredIn\\DataAccess\\DataAccess.csproj"
+            "C:\\Users\\mathi\\Desktop\\HiredIn\\ProyectoHiredIn\\Commons\\Commons.csproj": {
+              "projectPath": "C:\\Users\\mathi\\Desktop\\HiredIn\\ProyectoHiredIn\\Commons\\Commons.csproj"
+            },
+            "C:\\Users\\mathi\\Desktop\\HiredIn\\ProyectoHiredIn\\DataAccess\\DataAccess.csproj": {
+              "projectPath": "C:\\Users\\mathi\\Desktop\\HiredIn\\ProyectoHiredIn\\DataAccess\\DataAccess.csproj"
             }
           }
         }

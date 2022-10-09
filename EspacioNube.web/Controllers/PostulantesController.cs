@@ -6,29 +6,31 @@ using System.Collections.Generic;
 using DataAccess;
 using DataAccess.Base;
 using DataAccess.Models;
+using EspacioNube.web.Services;
+using System.Threading.Tasks;
 
 namespace EspacioNube.web.Controllers
 {
     [Authorize(Roles = "UserDefault, SuperAdmin")]
     public class PostulantesController : Controller
     {
+        private readonly PostulantesService _postulantesService;
 
         public PostulantesController()
         {
+            _postulantesService = new PostulantesService();
         }
 
-        public IActionResult CrearPostulante()
+        public async Task<IActionResult> CrearPostulante()
         {
-            ViewBag.EmpresasList = BaseManager.contextoSingleton.Empresas.ToList();
+            ViewBag.PostulantesList = await _postulantesService.BuscarListaAsync();
 
             return View();
         }
 
-        public IActionResult GuardarPostulante(string nombre, string dni, string telefono, string email, DateTime fechaNacimiento, int empresaID)
+        public async Task<IActionResult> GuardarPostulante(int id, string nombre, string dni, string telefono, string email, DateTime fechaNacimiento)
         {
-            Empresa empSel = BaseManager.contextoSingleton.Empresas.Find(empresaID);
-            List<Empresa> newList = new List<Empresa>();
-            newList.Add(empSel);
+            Postulante empSel = await _postulantesService.BuscarListaAsync(id);
             
             Postulante NuevoPostulante = new Postulante()
             {
@@ -37,12 +39,9 @@ namespace EspacioNube.web.Controllers
                 Telefono = telefono,
                 Email = email,
                 FechaNacimiento = fechaNacimiento,
-                Empresas = newList,
-    
             };
 
-            BaseManager.contextoSingleton.Postulantes.Add(NuevoPostulante);
-            BaseManager.contextoSingleton.SaveChanges();
+            await _postulantesService.GuardarAsync(NuevoPostulante);
 
             return RedirectToAction("PostulanteRegistrado");
 
@@ -52,25 +51,27 @@ namespace EspacioNube.web.Controllers
             return View();
         }
         
-        public IActionResult ConsultarPostulantes()
+        public async Task<IActionResult> ConsultarPostulantes()
         {
-            ViewBag.PostulantesList = BaseManager.contextoSingleton.Postulantes.ToList();
-            
+            ViewBag.PostulantesList = await _postulantesService.BuscarListaAsync();
             
             return View();
         }
-         public IActionResult Editar(int id)
+         public async Task<IActionResult> Editar(int id)
         {
-            Postulante editar = BaseManager.contextoSingleton.Postulantes.Find(id);
+            Postulante editar = await _postulantesService.BuscarListaAsync(id);
+
             if (editar == null)
             {
                 return RedirectToAction("ConsultarPostulantes");
             }
+
             return View(editar);
         }
-        public IActionResult Actualizar(int id, string nombre, string dni, string email, string telefono)
+
+        public async Task<IActionResult> Actualizar(int id, string nombre, string dni, string email, string telefono)
         {   
-            Postulante editar = BaseManager.contextoSingleton.Postulantes.Find(id);
+            Postulante editar = await _postulantesService.BuscarListaAsync(id);
             
             if (editar != null)
             {
@@ -78,21 +79,17 @@ namespace EspacioNube.web.Controllers
                  editar.DNI = dni;
                  editar.Email = email;
                  editar.Telefono = telefono;
-                BaseManager.contextoSingleton.Postulantes.Update(editar);
-                BaseManager.contextoSingleton.SaveChanges();
+
+                await _postulantesService.GuardarAsync(editar);
             }
             return RedirectToAction("ConsultarPostulantes");
         }
 
-        public IActionResult Eliminar(int ID)
+        public async Task<IActionResult> Eliminar(int id)
         {
-            Postulante postulante = BaseManager.contextoSingleton.Postulantes.Find(ID);
-            
-            if (Eliminar != null)
-            {
-                BaseManager.contextoSingleton.Postulantes.Remove(postulante);
-                BaseManager.contextoSingleton.SaveChanges();
-            }
+            var postulante = await _postulantesService.BuscarListaAsync(id);
+
+            await _postulantesService.EliminarAsync(postulante);
 
             return RedirectToAction("ConsultarPostulantes");
         }

@@ -1,18 +1,19 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.EntityFrameworkCore;
 using DataAccess.Models;
-using DataAccess.Base;
+using EspacioNube.web.Services;
+using System.Threading.Tasks;
 
 namespace EspacioNube.web.Controllers
 {
     [Authorize(Roles = "Empresa, SuperAdmin")]
     public class EmpresasController : Controller
     {
+        private readonly EmpresasService _empresasService;
 
         public EmpresasController()
         {
+            _empresasService = new EmpresasService();
         }
 
         public IActionResult Index()
@@ -20,73 +21,82 @@ namespace EspacioNube.web.Controllers
             return View();
         }
 
+        [HttpPost]
         public IActionResult CrearEmpresa()
         {
             return View();
         }
-    
+
         [HttpPost]
-        public IActionResult Guardar(string nombre, string rubro, string telefono, string email, string sucursal, string ubicacion)
+        public async Task<IActionResult> Guardar(int id, string nombre, string rubro, string telefono, string email, string sucursal, string ubicacion)
         {
-            var BaseManager = new BaseManager();
+            var empresaExistente = _empresasService.Manager.BuscarUno(id);
 
-            Empresa NuevaEmpresa = new Empresa()
+            if (empresaExistente != null)
             {
-                NombreEmpresa = nombre,
-                Rubro = rubro,
-                Telefono = telefono,
-                Email = email,
-                Sucursal = sucursal,
-            };
+                Empresa empresa = new Empresa()
+                {
+                    NombreEmpresa = nombre,
+                    Rubro = rubro,
+                    Telefono = telefono,
+                    Email = email,
+                    Sucursal = sucursal,
+                    UbicacionSucursal = ubicacion
+                };
 
-            BaseManager.contextoSingleton.Empresas.Add(NuevaEmpresa);
-            BaseManager.contextoSingleton.SaveChangesAsync();
+                await _empresasService.GuardarAsync(empresa);
+            }
+            else
+            {
+                Empresa nuevaEmpresa = new Empresa()
+                {
+                    NombreEmpresa = nombre,
+                    Rubro = rubro,
+                    Telefono = telefono,
+                    Email = email,
+                    Sucursal = sucursal,
+                    UbicacionSucursal = ubicacion
+                };
 
-            return RedirectToAction("EmpresaRegistrada");
+                await _empresasService.GuardarAsync(nuevaEmpresa);
+
+                return await Task.Run(() => RedirectToAction("ConsultarEmpresas"));
+            }
+
+            return await Task.Run(() => RedirectToAction("ConsultarEmpresas"));
         }
-
-
 
         public IActionResult EmpresaRegistrada()
         {
             return View();
         }
 
-        public IActionResult ConsultarEmpresas()
+        public async Task<IActionResult> ConsultarEmpresas()
         {
-            var BaseManager = new BaseManager();
 
-            ViewBag.EmpresasList = BaseManager.contextoSingleton.Empresas.Include("Postulantes").ToList();
+            ViewBag.EmpresasList = await _empresasService.BuscarListaAsync();
 
             return View();
         }
 
-
-
-        public IActionResult DetalleEmpresa(int ID)
+        public async Task<IActionResult> DetalleEmpresa(int id)
         {
 
-            var BaseManager = new BaseManager();
-
-            var empresa = BaseManager.contextoSingleton.Empresas.Where(e => e.ID == ID).Include("Postulantes").FirstOrDefault();
+            var empresa = await _empresasService.Manager.BuscarUno(id);
             
             if (empresa.Postulantes.Count == 0 || empresa.Postulantes == null)
             {
                 return RedirectToAction("ConsultarEmpresas");
             }
 
-            ViewBag.empresaDetail = BaseManager.contextoSingleton.Empresas.Where(e => e.ID == ID).Include("Postulantes");
+            ViewBag.empresaDetail = empresa;
 
             return View();
         }
 
-        
-
-        public IActionResult Editar(int id)
+        public async Task<IActionResult> Editar(int id)
         {
-            var BaseManager = new BaseManager();
-
-            Empresa editar = BaseManager.contextoSingleton.Empresas.Find(id);
+            Empresa editar = await _empresasService.BuscarListaAsync(id);
 
             if (editar == null)
             {
@@ -95,39 +105,23 @@ namespace EspacioNube.web.Controllers
             return View(editar);
         }
 
-        public IActionResult Actualizar(int id, string nombre, string rubro, string telefono, string email)
+        public async Task<IActionResult> Actualizar(int id, string nombre, string rubro, string telefono, string email, string sucursal, string ubicacion)
         {
-            var BaseManager = new BaseManager();
+            await Guardar(id, nombre, rubro, telefono, email, sucursal, ubicacion);
 
-            Empresa editar = BaseManager.contextoSingleton.Empresas.Find(id);
-
-            if (editar != null)
-            {
-                editar.NombreEmpresa = nombre;
-                editar.Rubro = rubro;
-                editar.Telefono = telefono;
-                editar.Email = email;
-
-                BaseManager.contextoSingleton.Empresas.Update(editar);
-                BaseManager.contextoSingleton.SaveChangesAsync();
-            }
-            return RedirectToAction("ConsultarEmpresas");
+            return await Task.Run(() => RedirectToAction("ConsultarEmpresas"));
         }
 
-        public IActionResult Eliminar(int ID)
+        public async Task<IActionResult> Eliminar(int Id)
         {
-            var BaseManager = new BaseManager();
-
-            Empresa Eliminar = BaseManager.contextoSingleton.Empresas.Find(ID);
+            Empresa Eliminar = await _empresasService.BuscarListaAsync(Id);
             
             if (Eliminar != null)
             {
-                BaseManager.contextoSingleton.Empresas.Remove(Eliminar);
-                BaseManager.contextoSingleton.SaveChangesAsync();
+                await _empresasService.EliminarAsync(Eliminar);
             }
-                return RedirectToAction("ConsultarEmpresas");
+
+            return RedirectToAction("ConsultarEmpresas");
         }
-
     }
-
 }

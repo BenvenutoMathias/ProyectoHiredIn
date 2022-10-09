@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "EspacioNube.web/1.0.0": {
         "dependencies": {
+          "Commons": "1.0.0",
           "DataAccess": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "6.0.9",
           "Microsoft.AspNetCore.Identity.UI": "6.0.9",
@@ -2500,6 +2501,11 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
+      "Commons/1.0.0": {
+        "runtime": {
+          "Commons.dll": {}
+        }
+      },
       "DataAccess/1.0.0": {
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.9",
@@ -3939,6 +3945,11 @@
       "sha512": "sha512-5zJ0XDxAIg8iy+t4aMnQAu0MqVbqyvfoUVl1yDV61xdo3Vth45oA2FoY4pPkxYAH5f8ixpmTqXeEIya95x0aCQ==",
       "path": "system.xml.xdocument/4.3.0",
       "hashPath": "system.xml.xdocument.4.3.0.nupkg.sha512"
+    },
+    "Commons/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     },
     "DataAccess/1.0.0": {
       "type": "project",

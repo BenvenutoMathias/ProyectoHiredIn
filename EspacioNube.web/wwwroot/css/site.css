@@ -62,9 +62,6 @@ html {
 body {
   /* Margin bottom by footer height */
   margin-bottom: 60px;
-  background-image: url(../Images/virtual.jpg);
-  background-repeat: no-repeat;
-  background-size: cover;
   background-attachment: fixed;
 }
 .footer {

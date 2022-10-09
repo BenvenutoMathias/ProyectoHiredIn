@@ -10,18 +10,14 @@ namespace DataAccess
         public ApplicationDbContext() : base()
         {
         }
-        //    public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
-        //: base(options)
-        //    {
-        //    }
 
-        public static string ConnectionString { get; set; }
+        public static string ConnectionString { get; set; } = string.Empty;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
             optionsBuilder.EnableSensitiveDataLogging();
-            optionsBuilder.UseSqlServer(ConnectionString); //, b => b.MigrationsAssembly("EspacioNube.web")
+            optionsBuilder.UseSqlServer(ConnectionString);
         }
 
 
@@ -53,7 +49,7 @@ namespace DataAccess
 
         public DbSet<Postulante> Postulantes { get; set; }
         public DbSet<Empresa> Empresas { get; set; }
-        public DbSet<Post> Post { get; set; }
+        public DbSet<Post> Posts { get; set; }
     }
 
 }

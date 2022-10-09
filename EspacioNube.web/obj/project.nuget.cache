@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "raszZHOJGe3QEJuXoFaK0mq6qvrLKsdtt9xpIldNBkNjPLGAgA4eqFjVPgEPzGAxlzAblqYcF7ovFMN+9LhnFQ==",
+  "dgSpecHash": "AUZV3lLvteId/umcfuZMgHIdzuLaKOINlfjDOAdrVVuiYfDbAeB7pRxJkMQ01VVtlIj6vHFnYsPqs8tuaUCABw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\mathi\\source\\repos\\Proyectos\\HiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
+  "projectFilePath": "C:\\Users\\mathi\\Desktop\\HiredIn\\ProyectoHiredIn\\EspacioNube.web\\EspacioNube.web.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\mathi\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\mathi\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",

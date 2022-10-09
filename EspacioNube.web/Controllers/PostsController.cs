@@ -1,39 +1,59 @@
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
 using Microsoft.AspNetCore.Authorization;
-using DataAccess.Base;
 using DataAccess.Models;
+using EspacioNube.web.Services;
+using System.Threading.Tasks;
+using EspacioNube.web.Interfaces;
 
 namespace EspacioNube.web.Controllers
 {
     [Authorize(Roles = "Empresa, SuperAdmin")]
     public class PostsController : Controller
-    {   
+    {
+        private readonly PostsService _postsService;
+
         public PostsController()
         {
+            _postsService = new PostsService();
         }
 
-        public IActionResult Index()
-        {   
-            ViewBag.Publicaciones = BaseManager.contextoSingleton.Post.ToList();
+        public async Task<IActionResult> Index()
+        {
+            ViewBag.Publicaciones = await _postsService.BuscarListaAsync();
+
             return View();
         }
 
         public IActionResult CrearPost()
-        {  
+        {
             return View();
         }
 
-        public IActionResult Guardar(string titulo, string descripcion)
-        {  
-             Post NuevoPost = new Post()
-             {
-                HeaderPost = titulo,
-                BodyPost = descripcion,
-             };
+        public async Task<IActionResult> Guardar(int id, string titulo, string descripcion)
+        {
 
-            BaseManager.contextoSingleton.Post.Add(NuevoPost);
-            BaseManager.contextoSingleton.SaveChanges();
+            var postExistente = _postsService.BuscarListaAsync(id);
+
+            if (postExistente != null)
+            {
+                Post NuevoPost = new Post()
+                {
+                    HeaderPost = titulo,
+                    BodyPost = descripcion,
+                };
+
+                await _postsService.GuardarAsync(NuevoPost);
+            }
+            else
+            {
+                Post NuevoPost = new Post()
+                {
+                    HeaderPost = titulo,
+                    BodyPost = descripcion,
+                };
+
+                await _postsService.GuardarAsync(NuevoPost);
+            }
 
             return RedirectToAction("Index", "Home");
         }

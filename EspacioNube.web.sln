@@ -5,7 +5,9 @@ VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EspacioNube.web", "EspacioNube.web\EspacioNube.web.csproj", "{1F3071D3-5BD0-485D-BE6C-AD44D7CD5E74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{478E38B8-AB0E-42C0-826B-36529849E83C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{478E38B8-AB0E-42C0-826B-36529849E83C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Commons", "Commons\Commons.csproj", "{370E8E11-9ED1-40E2-A501-86D16E5B960B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{478E38B8-AB0E-42C0-826B-36529849E83C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{478E38B8-AB0E-42C0-826B-36529849E83C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{478E38B8-AB0E-42C0-826B-36529849E83C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{370E8E11-9ED1-40E2-A501-86D16E5B960B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{370E8E11-9ED1-40E2-A501-86D16E5B960B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{370E8E11-9ED1-40E2-A501-86D16E5B960B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{370E8E11-9ED1-40E2-A501-86D16E5B960B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

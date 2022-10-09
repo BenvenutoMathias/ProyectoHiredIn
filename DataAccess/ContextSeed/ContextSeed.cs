@@ -47,7 +47,7 @@ namespace DataAccess.ContexSeed
 
                 if (user == null)
                 {
-                    await userManager.CreateAsync(defaultUser, "Constraseña23!");
+                    await userManager.CreateAsync(defaultUser, "2397");
                     await userManager.AddToRoleAsync(defaultUser, Roles.SuperAdmin.ToString());
                 }
             }
@@ -58,7 +58,7 @@ namespace DataAccess.ContexSeed
 
                 if (user == null)
                 {
-                    await userManager.CreateAsync(defaultEnterprise, "Constraseña23!");
+                    await userManager.CreateAsync(defaultEnterprise, "2397");
                     await userManager.AddToRoleAsync(defaultEnterprise, Roles.Empresa.ToString());
                 }
             }

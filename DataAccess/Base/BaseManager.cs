@@ -2,12 +2,11 @@
 
 namespace DataAccess.Base
 {
-    public class BaseManager
+    public abstract class BaseManager<T> where T : class
     {
-
         #region Singleton Contexto
-        protected static ApplicationDbContext _context;
 
+        protected static ApplicationDbContext _context;
 
         public static ApplicationDbContext contextoSingleton
         {
@@ -19,6 +18,29 @@ namespace DataAccess.Base
             }
         }
 
+        #endregion
+
+        #region  Metodos Abstractos
+        public abstract Task<List<T>> BuscarListaAsync();
+        public abstract Task<T> BuscarUno(int id);
+        public abstract Task<bool> Eliminar(T modelo);
+        #endregion
+
+        #region Metodos Publicos
+        public async Task<bool> Guardar(T modelo, int id)
+        {
+            if (id == 0)
+                contextoSingleton.Entry<T>(modelo).State = EntityState.Added;
+
+            else
+                contextoSingleton.Entry<T>(modelo).State = EntityState.Modified;
+
+            var result = await contextoSingleton.SaveChangesAsync() > 0;
+
+            contextoSingleton.Entry<T>(modelo).State = EntityState.Detached;
+
+            return result;
+        }
         #endregion
     }
 }

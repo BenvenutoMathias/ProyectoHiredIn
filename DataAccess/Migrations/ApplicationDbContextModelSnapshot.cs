@@ -81,6 +81,9 @@ namespace DataAccess.Migrations
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("bit");
 
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
                     b.Property<string>("UserName")
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
@@ -100,11 +103,11 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("DataAccess.Models.Empresa", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -130,44 +133,44 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
                     b.ToTable("Empresas");
                 });
 
             modelBuilder.Entity("DataAccess.Models.Post", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("BodyPost")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("EmpresaID")
+                    b.Property<int?>("EmpresaId")
                         .HasColumnType("int");
 
                     b.Property<string>("HeaderPost")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
-                    b.HasIndex("EmpresaID");
+                    b.HasIndex("EmpresaId");
 
                     b.ToTable("Post");
                 });
 
             modelBuilder.Entity("DataAccess.Models.Postulante", b =>
                 {
-                    b.Property<int>("ID")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ID"), 1L, 1);
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("DNI")
                         .IsRequired()
@@ -184,31 +187,31 @@ namespace DataAccess.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("PostID")
+                    b.Property<int?>("PostId")
                         .HasColumnType("int");
 
                     b.Property<string>("Telefono")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ID");
+                    b.HasKey("Id");
 
-                    b.HasIndex("PostID");
+                    b.HasIndex("PostId");
 
                     b.ToTable("Postulantes");
                 });
 
             modelBuilder.Entity("EmpresaPostulante", b =>
                 {
-                    b.Property<int>("EmpresasID")
+                    b.Property<int>("EmpresasId")
                         .HasColumnType("int");
 
-                    b.Property<int>("PostulantesID")
+                    b.Property<int>("PostulantesId")
                         .HasColumnType("int");
 
-                    b.HasKey("EmpresasID", "PostulantesID");
+                    b.HasKey("EmpresasId", "PostulantesId");
 
-                    b.HasIndex("PostulantesID");
+                    b.HasIndex("PostulantesId");
 
                     b.ToTable("PostulanteEmpresa", (string)null);
                 });
@@ -350,27 +353,27 @@ namespace DataAccess.Migrations
                 {
                     b.HasOne("DataAccess.Models.Empresa", null)
                         .WithMany("Publicaciones")
-                        .HasForeignKey("EmpresaID");
+                        .HasForeignKey("EmpresaId");
                 });
 
             modelBuilder.Entity("DataAccess.Models.Postulante", b =>
                 {
                     b.HasOne("DataAccess.Models.Post", null)
                         .WithMany("Postulantes")
-                        .HasForeignKey("PostID");
+                        .HasForeignKey("PostId");
                 });
 
             modelBuilder.Entity("EmpresaPostulante", b =>
                 {
                     b.HasOne("DataAccess.Models.Empresa", null)
                         .WithMany()
-                        .HasForeignKey("EmpresasID")
+                        .HasForeignKey("EmpresasId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("DataAccess.Models.Postulante", null)
                         .WithMany()
-                        .HasForeignKey("PostulantesID")
+                        .HasForeignKey("PostulantesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

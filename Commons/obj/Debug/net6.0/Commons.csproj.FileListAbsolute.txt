@@ -1,0 +1,12 @@
+C:\Users\mathi\Desktop\HiredIn\ProyectoHiredIn\Commons\bin\Debug\net6.0\Commons.deps.json
+C:\Users\mathi\Desktop\HiredIn\ProyectoHiredIn\Commons\bin\Debug\net6.0\Commons.dll
+C:\Users\mathi\Desktop\HiredIn\ProyectoHiredIn\Commons\bin\Debug\net6.0\Commons.pdb
+C:\Users\mathi\Desktop\HiredIn\ProyectoHiredIn\Commons\obj\Debug\net6.0\Commons.csproj.AssemblyReference.cache
+C:\Users\mathi\Desktop\HiredIn\ProyectoHiredIn\Commons\obj\Debug\net6.0\Commons.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mathi\Desktop\HiredIn\ProyectoHiredIn\Commons\obj\Debug\net6.0\Commons.AssemblyInfoInputs.cache
+C:\Users\mathi\Desktop\HiredIn\ProyectoHiredIn\Commons\obj\Debug\net6.0\Commons.AssemblyInfo.cs
+C:\Users\mathi\Desktop\HiredIn\ProyectoHiredIn\Commons\obj\Debug\net6.0\Commons.csproj.CoreCompileInputs.cache
+C:\Users\mathi\Desktop\HiredIn\ProyectoHiredIn\Commons\obj\Debug\net6.0\Commons.dll
+C:\Users\mathi\Desktop\HiredIn\ProyectoHiredIn\Commons\obj\Debug\net6.0\refint\Commons.dll
+C:\Users\mathi\Desktop\HiredIn\ProyectoHiredIn\Commons\obj\Debug\net6.0\Commons.pdb
+C:\Users\mathi\Desktop\HiredIn\ProyectoHiredIn\Commons\obj\Debug\net6.0\ref\Commons.dll
